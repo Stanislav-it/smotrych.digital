@@ -23,14 +23,19 @@
 
         <div class="contact-form-block">
             <h2>Opisz swój projekt</h2>
-            <form class="contact-form" action="mailto:kontakt@smotrych.com" method="post" enctype="text/plain">
+            <form class="contact-form" action="{{ url_for('lead') }}" method="post">
+                <input type="hidden" name="source" value="Kontakt — Smotrych Digital">
+                <label class="form-hp" aria-hidden="true">
+                    <span>Website</span>
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </label>
                 <label>
                     <span class="sr-only">Imię i nazwisko</span>
-                    <input type="text" name="full_name" placeholder="Imię i nazwisko">
+                    <input type="text" name="full_name" placeholder="Imię i nazwisko" autocomplete="name">
                 </label>
                 <label>
                     <span class="sr-only">Adres e-mail</span>
-                    <input type="email" name="email" placeholder="email@firma.pl">
+                    <input type="email" name="email" placeholder="email@firma.pl" autocomplete="email" required>
                 </label>
                 <label>
                     <span class="sr-only">Opis projektu</span>

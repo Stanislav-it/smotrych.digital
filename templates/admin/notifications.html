@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Zgłoszenia — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="admin-page section">
+    <div class="admin-shell admin-shell-wide">
+        <div class="admin-topbar">
+            <div>
+                <h1>Zgłoszenia</h1>
+                <p>Łącznie: {{ total }}</p>
+            </div>
+            <a href="{{ url_for('admin_logout') }}">Wyloguj</a>
+        </div>
+
+        <form class="admin-search" method="get">
+            <input type="search" name="q" value="{{ q }}" placeholder="Szukaj po imieniu, e-mailu, telefonie lub wiadomości">
+            <button type="submit">Szukaj</button>
+        </form>
+
+        <div class="admin-leads-list">
+            {% for lead in leads %}
+            <article class="admin-lead-card">
+                <div class="admin-lead-head">
+                    <div>
+                        <strong>#{{ lead.id }} — {{ lead.name or 'Bez imienia' }}</strong>
+                        <span>{{ lead.created_at }} UTC</span>
+                    </div>
+                    <a href="mailto:{{ lead.email }}">{{ lead.email or 'brak e-maila' }}</a>
+                </div>
+                <div class="admin-lead-meta">
+                    <span>Telefon: {{ lead.phone or '-' }}</span>
+                    <span>Źródło: {{ lead.source or '-' }}</span>
+                    <span>IP: {{ lead.ip or '-' }}</span>
+                </div>
+                <pre>{{ lead.message or '-' }}</pre>
+            </article>
+            {% else %}
+            <p class="admin-empty">Brak zgłoszeń.</p>
+            {% endfor %}
+        </div>
+
+        <div class="admin-pagination">
+            {% if page > 1 %}
+            <a href="{{ url_for('admin_notifications', q=q, page=page-1) }}">← Poprzednia</a>
+            {% endif %}
+            <span>{{ page }} / {{ total_pages }}</span>
+            {% if page < total_pages %}
+            <a href="{{ url_for('admin_notifications', q=q, page=page+1) }}">Następna →</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

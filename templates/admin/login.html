@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Admin login — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="admin-page section">
+    <div class="admin-shell">
+        <h1>Panel zgłoszeń</h1>
+        <form class="admin-login-form" method="post">
+            <label>
+                <span>Hasło administratora</span>
+                <input type="password" name="password" autocomplete="current-password" required>
+            </label>
+            <button type="submit">Zaloguj</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
