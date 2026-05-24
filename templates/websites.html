@@ -1,0 +1,422 @@
+{% extends "base.html" %}
+{% block title %}Strony WWW — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="websites-hero-section">
+    <div class="container websites-hero-card reveal">
+        <div class="websites-hero-bg" aria-hidden="true"></div>
+        <h1 class="websites-hero-title">
+            <span>Strony WWW</span>
+            <span>gotowe pod</span>
+            <span>zaufanie i</span>
+            <span>sprzedaż</span>
+        </h1>
+    </div>
+</section>
+
+<section class="websites-content-section">
+    <div class="container websites-content reveal">
+        <p class="websites-lead-lines">
+            <span>Budujemy szybkie strony WWW,</span>
+            <span>które od razu wyjaśniają ofertę,</span>
+            <span>budują zaufanie do marki</span>
+            <span>i zamieniają ruch w zapytania.</span>
+        </p>
+        <a class="websites-cta" href="{{ url_for('page', slug='kontakt') }}">
+            <span>Wyceń stronę</span>
+            <strong aria-hidden="true">→</strong>
+        </a>
+    </div>
+</section>
+
+<section class="websites-stats-section">
+    <div class="container websites-stats reveal" data-countup-group>
+        <div>
+            <strong>Zrealizowane projekty</strong>
+            <span class="stats-counter" data-target="50" data-suffix="+">50+</span>
+        </div>
+        <div>
+            <strong>Średni wynik PageSpeed</strong>
+            <span class="stats-counter" data-target="90" data-suffix="+">90+</span>
+        </div>
+        <div>
+            <strong>Lat doświadczenia</strong>
+            <span class="stats-counter" data-target="5" data-suffix="+">5+</span>
+        </div>
+        <div>
+            <strong>Średnia ocena klientów</strong>
+            <span class="stats-counter" data-target="4.9" data-decimals="1">4.9</span>
+        </div>
+    </div>
+</section>
+
+<section class="websites-clients-section">
+    <div class="container websites-clients reveal">
+        <h2>Nasi klienci</h2>
+        <p>
+            Współpracujemy z markami beauty, e-commerce i usługowymi,
+            tworząc dopracowane strony oraz sklepy online, które łączą
+            estetykę, zaufanie i realną sprzedaż.
+        </p>
+
+        <div class="client-logo-rotator" data-logo-rotator aria-label="Logotypy klientów">
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/blue-circuit-logo-circle.png', v='20260523_strony_www_16') }}" alt="Lumiáge">
+                <span class="client-wordmark">Lumiáge</span>
+            </div>
+            <div class="client-logo-item is-text" data-logo-item data-has-circle="false">
+                <span class="client-wordmark">Lasertulowyxlevage</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/dm-logo-circle.png', v='20260523_strony_www_16') }}" alt="DocuBeauty">
+                <span class="client-wordmark">DocuBeauty</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/x-estetik-logo-circle.png', v='20260523_strony_www_16') }}" alt="X-Estetik">
+                <span class="client-wordmark">X-Estetik</span>
+            </div>
+            <div class="client-logo-item is-text" data-logo-item data-has-circle="false">
+                <span class="client-wordmark">SEOMotive</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/poniedzialek-kosmetyka-logo-circle.png', v='20260523_strony_www_16') }}" alt="Poniedziałek Kosmetyka">
+                <span class="client-wordmark">poniedziałek_kosmetyka</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/instaelite-logo-circle.png', v='20260523_strony_www_16') }}" alt="InstaElite">
+                <span class="client-wordmark">InstaElite</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/3pierogi-pierogarnia-logo-circle.png', v='20260523_strony_www_16') }}" alt="Wezpierozki">
+                <span class="client-wordmark">Wezpierozki</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/kosmetik-studio-kassel-circle.png', v='20260523_strony_www_16') }}" alt="Kosmetik Studio Kassel">
+                <span class="client-wordmark">Kosmetik Studio Kassel</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="websites-cases-section">
+    <div class="container websites-cases">
+        <div class="websites-cases-heading">
+            <h2>Realizacje</h2>
+            <a href="{{ url_for('page', slug='portfolio') }}">Zobacz więcej prac <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="websites-case-list">
+            <article class="websites-case-card reveal" style="--i: 0">
+                <figure><img src="{{ url_for('static', filename='img/case-studies/docubeauty.png', v='20260523_strony_www_16') }}" alt="DocuBeauty — sklep online"></figure>
+                <h3>DocuBeauty</h3>
+                <p>Sklep online z katalogiem produktów i dokumentów beauty, płatnościami kartą, BLIK i Apple Pay oraz prostą ścieżką zakupu.</p>
+            </article>
+
+            <article class="websites-case-card reveal" style="--i: 1">
+                <figure><img src="{{ url_for('static', filename='img/case-studies/x-estetik.png', v='20260523_strony_www_16') }}" alt="X-Estetik — strona internetowa"></figure>
+                <h3>X-Estetik</h3>
+                <p>Strona dla dystrybutora aparatury kosmetycznej i medycznej, zaprojektowana pod prezentację technologii, SEO i pozyskiwanie leadów.</p>
+            </article>
+
+            <article class="websites-case-card reveal" style="--i: 2">
+                <figure><img src="{{ url_for('static', filename='img/case-studies/x-levage.png', v='20260523_strony_www_16') }}" alt="X-Levage — prezentacja technologii"></figure>
+                <h3>X-Levage</h3>
+                <p>Prezentacja technologii laserowych z przejrzystą strukturą oferty, mocnym hero i ścieżkami prowadzącymi do kontaktu.</p>
+            </article>
+
+            <article class="websites-case-card reveal" style="--i: 3">
+                <figure><img src="{{ url_for('static', filename='img/case-studies/lumiage.png', v='20260523_strony_www_16') }}" alt="Lumiàge — strona marki beauty"></figure>
+                <h3>Lumiàge</h3>
+                <p>Nowoczesna strona dla marki technologii beauty, łącząca premium wizerunek, czytelny przekaz i konwersję na prezentacje.</p>
+            </article>
+
+            <article class="websites-case-card reveal" style="--i: 4">
+                <figure><img src="{{ url_for('static', filename='img/case-studies/poniedzialek-kosmetyka.png', v='20260523_strony_www_16') }}" alt="Poniedziałek Kosmetyka — strona usługowa"></figure>
+                <h3>Poniedziałek Kosmetyka</h3>
+                <p>Strona dla mobilnej kosmetyczki z ofertą zabiegów, lekką galerią i prostą komunikacją lokalnej usługi.</p>
+            </article>
+
+            <article class="websites-case-card reveal" style="--i: 5">
+                <figure><img src="{{ url_for('static', filename='img/case-studies/kosmetik-studio-kassel.png', v='20260523_strony_www_16') }}" alt="Kosmetik Studio Kassel — strona salonu beauty"></figure>
+                <h3>Kosmetik Studio Kassel</h3>
+                <p>Elegancka strona salonu beauty z formularzem rezerwacji, prezentacją usług i dopracowanym układem dla telefonu.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="websites-testimonials-section">
+    <div class="container websites-testimonials reveal" data-testimonials-section>
+        <div class="websites-testimonials-heading">
+            <h2><span>Co mówią nasi</span><span>partnerzy</span></h2>
+            <span class="websites-testimonials-kicker">Opinie <span aria-hidden="true">→</span></span>
+        </div>
+
+        <div class="websites-testimonials-slider" data-testimonials>
+            <div class="websites-testimonials-topbar">
+                <div class="websites-testimonial-company" data-testimonial-company aria-live="polite"></div>
+                <div class="websites-testimonials-controls" aria-label="Nawigacja opinii">
+                    <button class="websites-testimonials-arrow" type="button" data-testimonial-prev aria-label="Poprzednia opinia">←</button>
+                    <span class="websites-testimonials-count" data-testimonial-count>1 / 6</span>
+                    <button class="websites-testimonials-arrow" type="button" data-testimonial-next aria-label="Następna opinia">→</button>
+                </div>
+            </div>
+
+            <div class="websites-testimonials-list">
+                <article class="websites-testimonial-slide is-active" data-testimonial-slide data-company="Lumiàge">
+                    <p class="websites-testimonial-quote">„Smotrych Digital uporządkował naszą ofertę i ubrał ją w elegancki, premium wygląd. Strona wreszcie prowadzi klienta krok po kroku, a rozmowy sprzedażowe zaczynają się dużo szybciej, bo najważniejsze rzeczy są jasne już od pierwszego wejścia.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-center-woman.png') }}" alt="Klara Modzelewska">
+                        <div>
+                            <strong>Klara Modzelewska</strong>
+                            <span>Dyrektor operacyjna</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="X-Levage">
+                    <p class="websites-testimonial-quote">„Zależało nam na stronie, która pokaże technologię bez chaosu i bez przeładowania treścią. Dostaliśmy nowoczesny projekt, czytelną strukturę i spójny kierunek komunikacji. Efekt? Więcej jakościowych zapytań i dużo lepsze pierwsze wrażenie.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-left-man.png') }}" alt="Maksymilian Rogalski">
+                        <div>
+                            <strong>Maksymilian Rogalski</strong>
+                            <span>Dyrektor ds. rozwoju biznesu</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="DocuBeauty">
+                    <p class="websites-testimonial-quote">„Najbardziej cenimy to, że cały proces był prosty i konkretny. Smotrych Digital połączył sprzedaż, estetykę i wygodę zakupów w jednym miejscu. Klienci szybciej odnajdują produkty, a my mamy wreszcie sklep, który wygląda profesjonalnie i działa bezproblemowo.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-left-woman.png') }}" alt="Milena Zawadzka">
+                        <div>
+                            <strong>Milena Zawadzka</strong>
+                            <span>Specjalistka ds. relacji z klientami</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="X-Estetik">
+                    <p class="websites-testimonial-quote">„Potrzebowaliśmy strony, która nie tylko dobrze wygląda, ale też porządkuje komunikację marki. Zespół świetnie wyczuł nasz styl, dopracował przekaz i zadbał o detale. Całość jest nowoczesna, wiarygodna i bardzo wygodna do dalszego rozwijania.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-center-man.png') }}" alt="Tymon Wierzbicki">
+                        <div>
+                            <strong>Tymon Wierzbicki</strong>
+                            <span>Strateg marki i komunikacji</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Poniedziałek Kosmetyka">
+                    <p class="websites-testimonial-quote">„Bardzo zależało mi na lekkiej, kobiecej stronie, która od razu budzi zaufanie. Projekt wygląda subtelnie, ale jednocześnie jest praktyczny — klientki szybko widzą zabiegi, mogą się ze mną skontaktować i wiedzą, czego się spodziewać. Dokładnie o taki efekt chodziło.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-right-woman.png') }}" alt="Iga Romanowska">
+                        <div>
+                            <strong>Iga Romanowska</strong>
+                            <span>Konsultantka ds. wdrożeń cyfrowych</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Kosmetik Studio Kassel">
+                    <p class="websites-testimonial-quote">„Od początku zależało nam na stronie, która będzie elegancka, czytelna i gotowa pod kampanie. Smotrych Digital połączył formularz rezerwacji, SEO, analitykę i Google Ads w jeden spójny system. Dzięki temu nie tylko lepiej się prezentujemy, ale realnie pozyskujemy nowych klientów.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-right-man.png') }}" alt="Bruno Kaczmarek">
+                        <div>
+                            <strong>Bruno Kaczmarek</strong>
+                            <span>Kierownik projektów cyfrowych</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="websites-founder-section" id="kontakt-stanislav">
+    <div class="container websites-founder reveal">
+        <div class="websites-founder-intro">
+            <h2>Stanislav Smotrych</h2>
+            <p>Programuję od 5 lat i współpracuję z agencjami marketingowymi jako podwykonawca. Studiowałem informatykę na Politechnice Rzeszowskiej. Projekty tworzę indywidualnie dla każdego klienta — piszę je własnym kodem, bez szablonów i bez WordPressa. Pracuję szybko, a płatność rozliczam dopiero na końcu.</p>
+        </div>
+
+        <a class="websites-founder-card" href="https://wa.me/48723698910" target="_blank" rel="noopener noreferrer" aria-label="Napisz do Stanislava Smotrycha na WhatsApp">
+            <div class="websites-founder-person">
+                <img src="{{ url_for('static', filename='img/team/stanislav-smotrych.png', v='20260523_seo_tabs_01') }}" alt="Stanislav Smotrych">
+                <div>
+                    <strong>Stanislav Smotrych</strong>
+                    <span>Napisz do nas</span>
+                </div>
+            </div>
+
+            <div class="websites-founder-contact" aria-hidden="true">
+                <span class="websites-founder-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.04 2C6.72 2 2.42 6.18 2.42 11.35c0 1.82.54 3.52 1.46 4.95L2.9 22l5.9-1.55a9.9 9.9 0 0 0 3.24.54c5.32 0 9.63-4.18 9.63-9.35C21.67 6.18 17.36 2 12.04 2Zm0 17.08c-1 0-1.98-.2-2.88-.6l-.41-.18-3.5.92.94-3.36-.27-.43a7.13 7.13 0 0 1-1.1-3.81c0-3.97 3.27-7.2 7.22-7.2 3.98 0 7.22 3.23 7.22 7.2 0 3.97-3.24 7.2-7.22 7.2Zm3.96-5.4c-.22-.11-1.28-.63-1.48-.7-.2-.07-.34-.11-.48.11-.15.22-.56.7-.69.84-.13.15-.25.17-.47.06a5.9 5.9 0 0 1-1.74-1.06 6.57 6.57 0 0 1-1.2-1.48c-.13-.22-.01-.34.1-.45.1-.1.22-.25.33-.37.11-.13.15-.22.22-.36.07-.15.03-.28-.02-.4-.06-.11-.49-1.17-.67-1.61-.18-.42-.37-.37-.49-.38h-.42c-.15 0-.39.06-.6.28-.2.22-.78.76-.78 1.86 0 1.1.8 2.15.91 2.3.11.15 1.59 2.54 3.93 3.46 2.33.91 2.33.6 2.75.57.42-.03 1.28-.52 1.46-1.03.18-.51.18-.95.13-1.04-.05-.09-.19-.15-.4-.26Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="websites-founder-phone">+48 723 698 910</span>
+                <span class="websites-founder-arrow">↗</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="websites-seo-section" id="strony-www-wiedza">
+    <div class="container websites-seo reveal" data-seo-tabs>
+        <nav class="websites-seo-main-tabs" aria-label="Tematy o stronach WWW">
+            <button class="websites-seo-main-tab is-active" type="button" data-seo-tab="strony">Strony WWW</button>
+            <button class="websites-seo-main-tab" type="button" data-seo-tab="proces">Proces</button>
+            <button class="websites-seo-main-tab" type="button" data-seo-tab="pytania">Pytania</button>
+        </nav>
+
+        <div class="websites-seo-panel is-active" data-seo-panel="strony">
+            <div class="websites-seo-pill-row" aria-label="Tematy stron internetowych">
+                <button class="websites-seo-pill is-active" type="button" data-seo-item="strony-01">01 — indywidualna strona</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-02">02 — zaufanie i wizerunek</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-03">03 — mobile first</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-04">04 — kod bez WordPressa</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-05">05 — SEO od początku</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-06">06 — teksty pod klienta</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-07">07 — konwersja</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="strony-08">08 — analityka</button>
+            </div>
+
+            <article class="websites-seo-copy is-active" data-seo-copy="strony-01">
+                <p>Tworzymy strony WWW dopasowane do konkretnego biznesu, a nie do gotowego szablonu. Projekt zaczyna się od oferty, klientów, sposobu sprzedaży i tego, jaki krok użytkownik ma wykonać po wejściu na stronę.</p>
+                <p>Dzięki temu strona internetowa nie jest tylko wizytówką. Staje się narzędziem, które jasno wyjaśnia wartość firmy, porządkuje komunikację i prowadzi klienta do kontaktu, rezerwacji, zakupu albo zapytania ofertowego.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-02">
+                <p>Profesjonalny wygląd strony wpływa na to, czy klient zostanie i zaufa marce. Dbamy o typografię, odstępy, układ sekcji, zdjęcia, kolorystykę i rytm całej strony, aby firma wyglądała wiarygodnie już od pierwszego ekranu.</p>
+                <p>Dobry design nie polega na dekoracji. Ma pomagać w zrozumieniu oferty, podkreślać jakość usługi i sprawiać, że użytkownik czuje, że trafił w odpowiednie miejsce.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-03">
+                <p>Większość klientów sprawdza firmę na telefonie, dlatego projektujemy strony w podejściu mobile first. Najważniejsze treści, przyciski i formularze muszą być wygodne na małym ekranie, bez powiększania i szukania kontaktu.</p>
+                <p>Wersja mobilna ma być szybka, czytelna i naturalna w przewijaniu. To szczególnie ważne przy kampaniach Google Ads, lokalnych usługach, sklepach online i stronach, które mają generować zapytania.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-04">
+                <p>Strony tworzymy indywidualnie w kodzie. Nie używamy gotowych motywów WordPress ani ciężkich kreatorów, które często spowalniają działanie i ograniczają projekt.</p>
+                <p>Własny kod daje większą kontrolę nad szybkością, animacjami, strukturą HTML, responsywnością i przyszłą rozbudową. Strona może być dokładnie taka, jakiej potrzebuje firma — bez przypadkowych elementów i zbędnych dodatków.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-05">
+                <p>Struktura SEO powstaje od początku projektu. Ustalamy nagłówki, sekcje, logiczne bloki treści i słowa, które pomagają Google zrozumieć, co oferuje firma i dla kogo jest dana strona.</p>
+                <p>Dbamy o czytelność, techniczne podstawy, szybkość ładowania i naturalny język. To tworzy mocny fundament pod pozycjonowanie, content marketing oraz kampanie reklamowe.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-06">
+                <p>Teksty na stronie muszą odpowiadać na pytania klienta: co oferujesz, dla kogo, dlaczego warto, jak wygląda proces, ile to może trwać i jak można się skontaktować. Pisanie bez konkretu nie sprzedaje.</p>
+                <p>Tworzymy treści, które są naturalne dla ludzi i zrozumiałe dla Google. Dzięki temu strona lepiej komunikuje wartość marki, zatrzymuje użytkownika i zwiększa szansę na zapytanie.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-07">
+                <p>Strona WWW powinna prowadzić użytkownika do działania. Dlatego planujemy CTA, formularze, przyciski, WhatsApp, telefon, rezerwację albo zakup tak, aby klient zawsze wiedział, co zrobić dalej.</p>
+                <p>Konwersja to nie jeden przycisk na końcu strony. To cała ścieżka: nagłówek, argumenty, zaufanie, przykłady, szybki kontakt i brak zbędnych przeszkód.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="strony-08">
+                <p>Po uruchomieniu strony warto wiedzieć, co naprawdę działa. Podłączamy analitykę, mierzenie kliknięć, formularzy, źródeł ruchu i konwersji, aby decyzje opierać na danych, a nie na domysłach.</p>
+                <p>Dzięki analityce można rozwijać stronę, poprawiać kampanie Google Ads, testować nowe sekcje i zwiększać liczbę wartościowych zapytań.</p>
+            </article>
+        </div>
+
+        <div class="websites-seo-panel" data-seo-panel="proces">
+            <div class="websites-seo-pill-row" aria-label="Proces tworzenia strony">
+                <button class="websites-seo-pill is-active" type="button" data-seo-item="proces-01">01 — brief i cel</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-02">02 — struktura</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-03">03 — UX/UI design</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-04">04 — copywriting SEO</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-05">05 — programowanie</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-06">06 — integracje</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-07">07 — testy</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-08">08 — publikacja</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="proces-09">09 — rozwój</button>
+            </div>
+
+            <article class="websites-seo-copy is-active" data-seo-copy="proces-01">
+                <p>Proces zaczynamy od zrozumienia firmy: oferty, klientów, przewag, konkurencji i celu strony. Ustalamy, czy projekt ma generować zapytania, sprzedawać produkty, budować wizerunek, wspierać kampanie czy edukować użytkownika.</p>
+                <p>Dobry brief skraca cały projekt, bo pozwala szybko podjąć właściwe decyzje dotyczące treści, designu, technologii i struktury strony.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-02">
+                <p>Przed projektowaniem układamy architekturę strony: kolejność sekcji, podstrony, CTA, najważniejsze argumenty i miejsca kontaktu. Dzięki temu użytkownik nie błądzi, tylko naturalnie przechodzi od zainteresowania do decyzji.</p>
+                <p>Struktura jest też ważna dla SEO. Google lepiej rozumie stronę, gdy treści są ułożone logicznie, nagłówki mają sens, a każda sekcja odpowiada na konkretne pytanie.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-03">
+                <p>Projekt UX/UI łączy estetykę z funkcją. Tworzymy układ, który jest czytelny, nowoczesny i spójny z charakterem marki, ale przede wszystkim pomaga użytkownikowi szybko zrozumieć ofertę.</p>
+                <p>W designie kontrolujemy hierarchię informacji, typografię, kontrast, odstępy, zdjęcia, animacje i wygląd przycisków na telefonie oraz komputerze.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-04">
+                <p>Treść strony przygotowujemy tak, aby była jednocześnie sprzedażowa i przyjazna dla Google. Opisujemy usługi konkretnie, językiem korzyści, bez pustych haseł i bez sztucznego upychania słów kluczowych.</p>
+                <p>Dobrze napisany tekst pomaga klientowi podjąć decyzję, a wyszukiwarce zrozumieć temat strony, lokalizację, usługę i intencję użytkownika.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-05">
+                <p>Po zaakceptowaniu projektu kodujemy stronę indywidualnie. Dbamy o responsywność, szybkość, czysty HTML, logiczne klasy, stabilne animacje i brak zbędnych elementów, które spowalniają działanie.</p>
+                <p>Własne programowanie daje elastyczność: można dopasować formularze, widoki, sekcje i interakcje dokładnie pod biznes, a nie pod ograniczenia gotowego motywu.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-06">
+                <p>W zależności od projektu dodajemy integracje: formularz kontaktowy, WhatsApp, analitykę, piksele reklamowe, kalendarz rezerwacji, płatności online, BLIK, Apple Pay, katalog produktów albo system zamówień.</p>
+                <p>Integracje projektujemy tak, aby były proste dla użytkownika i wygodne dla firmy w codziennej obsłudze.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-07">
+                <p>Przed publikacją sprawdzamy stronę na telefonie, tablecie i komputerze. Testujemy formularze, linki, przyciski, szybkość ładowania, przewijanie, animacje i czytelność tekstów na różnych ekranach.</p>
+                <p>Ten etap eliminuje drobne błędy, które później mogłyby obniżać zaufanie lub blokować kontakt klienta z firmą.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-08">
+                <p>Pomagamy z publikacją strony, domeną, hostingiem i finalnym uruchomieniem. Po wdrożeniu sprawdzamy, czy wszystko działa poprawnie i czy strona jest gotowa na ruch z Google, social mediów oraz kampanii reklamowych.</p>
+                <p>Po publikacji można od razu mierzyć zachowanie użytkowników i planować dalszy rozwój.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="proces-09">
+                <p>Strona nie musi być skończona raz na zawsze. Można ją rozwijać etapami: dodawać podstrony SEO, landing page, blog, case studies, sklep online, nowe sekcje usługowe albo kampanie Google Ads.</p>
+                <p>Takie podejście pozwala startować szybciej i rozbudowywać projekt w miarę rozwoju firmy.</p>
+            </article>
+        </div>
+
+        <div class="websites-seo-panel" data-seo-panel="pytania">
+            <div class="websites-seo-pill-row" aria-label="Pytania klientów o strony WWW">
+                <button class="websites-seo-pill is-active" type="button" data-seo-item="pytania-01">01 — ile kosztuje?</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-02">02 — ile trwa?</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-03">03 — strona pod Google</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-04">04 — Google Ads</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-05">05 — sklep online</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-06">06 — dla agencji</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-07">07 — bez WordPressa</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-08">08 — rozbudowa</button>
+                <button class="websites-seo-pill" type="button" data-seo-item="pytania-09">09 — płatność</button>
+            </div>
+
+            <article class="websites-seo-copy is-active" data-seo-copy="pytania-01">
+                <p>Cena strony WWW zależy od zakresu: liczby sekcji, podstron, animacji, treści, integracji i tego, czy projekt ma być prostą stroną firmową, landing page, serwisową wizytówką czy rozbudowanym sklepem online.</p>
+                <p>Najpierw ustalamy cel i funkcje, a dopiero później wyceniamy projekt. Dzięki temu płacisz za realny zakres pracy, a nie za przypadkowy pakiet.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-02">
+                <p>Prosta strona firmowa może powstać szybko, a bardziej rozbudowany projekt wymaga więcej czasu na strategię, treści, projekt graficzny, kodowanie i testy. Najczęściej mówimy o czasie od kilku dni do kilku tygodni.</p>
+                <p>Tempo zależy też od materiałów: logo, zdjęć, opisów usług, przykładów realizacji i decyzji po stronie klienta.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-03">
+                <p>Tak, projektujemy strony z myślą o Google. Dbamy o nagłówki, semantykę, szybkość działania, responsywność, treści odpowiadające na pytania użytkowników i logiczną strukturę pod wyszukiwarkę.</p>
+                <p>To nie zastępuje długofalowego SEO, ale daje bardzo dobrą bazę do pozycjonowania i dalszego rozwoju contentu.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-04">
+                <p>Możemy przygotować stronę lub landing page pod Google Ads, podłączyć analitykę i mierzenie konwersji. Dzięki temu kampania nie prowadzi ruchu na przypadkową stronę, tylko na układ zaprojektowany pod zapytania.</p>
+                <p>Dobra strona pod reklamy ma jasny nagłówek, konkretną ofertę, widoczne CTA, szybkie ładowanie i formularz, który nie przeszkadza użytkownikowi w kontakcie.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-05">
+                <p>Tak, tworzymy sklepy online z katalogiem produktów, koszykiem, płatnościami, BLIK, kartą, Apple Pay, dostawą i strukturą kategorii. Sklep projektujemy tak, aby klient łatwo znalazł produkt i bez problemu złożył zamówienie.</p>
+                <p>Możemy też pomóc w przygotowaniu opisów, zdjęć, kategorii, dokumentów i podstawowej struktury SEO dla produktów.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-06">
+                <p>Tak, współpracujemy z agencjami marketingowymi jako podwykonawca. Realizujemy strony WWW, sklepy online, landing page, wdrożenia, analitykę, SEO i projekty przygotowane pod kampanie klientów końcowych.</p>
+                <p>Pracujemy szybko, konkretnie i z zachowaniem stylu agencji, dlatego projekt można płynnie włączyć w istniejący proces obsługi klienta.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-07">
+                <p>Nie budujemy stron na gotowych szablonach WordPress. Tworzymy projekty indywidualnie, co daje lepszą kontrolę nad designem, szybkością, kodem i przyszłą rozbudową.</p>
+                <p>Dla wielu firm oznacza to mniej zbędnych wtyczek, mniej ograniczeń i stronę dokładniej dopasowaną do konkretnej oferty.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-08">
+                <p>Stronę można rozbudowywać po starcie. Dodanie nowych sekcji, podstron usługowych, case studies, bloga, integracji, sklepu online albo dodatkowych landing page jest naturalną częścią rozwoju projektu.</p>
+                <p>Dzięki temu nie trzeba od razu robić wszystkiego. Można wystartować z mocną bazą i rozwijać ją razem z firmą.</p>
+            </article>
+            <article class="websites-seo-copy" data-seo-copy="pytania-09">
+                <p>Pracujemy sprawnie i rozliczamy projekt po ustaleniach dopasowanych do zakresu. Przy mniejszych realizacjach płatność może zostać ustalona na końcu, po wykonaniu i akceptacji strony.</p>
+                <p>Najważniejsze jest jasne ustalenie celu, zakresu i oczekiwanego efektu przed startem projektu.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

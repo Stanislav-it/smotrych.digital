@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smotrych Digital — nowoczesne strony internetowe, Google Ads i mierzalne wyniki.">
+    <title>{% block title %}Smotrych Digital{% endblock %}</title>
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/smotrych_icon.svg', v='20260524_home_desktop_01') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css', v='20260524_home_desktop_01') }}">
+</head>
+<body class="page-{{ current|default('home') }}">
+<header class="site-header home-header" data-header>
+    <a href="{{ url_for('index') }}" class="brand text-only" aria-label="Smotrych Digital — strona główna">
+        <span class="brand-text">SMOTRYCH DIGITAL</span>
+    </a>
+
+    <nav class="desktop-home-nav" aria-label="Menu główne">
+        <div class="desktop-home-nav-item desktop-home-nav-item--dropdown">
+            <a href="{{ url_for('page', slug='uslugi') }}">Usługi <span aria-hidden="true">▾</span></a>
+            <div class="desktop-home-submenu" aria-label="Podmenu usług">
+                <a href="{{ url_for('page', slug='strony-www') }}">Strony www</a>
+                <a href="{{ url_for('page', slug='sklepy-online') }}">Sklepy online</a>
+                <a href="{{ url_for('page', slug='marketing') }}">Marketing</a>
+            </div>
+        </div>
+        <a href="{{ url_for('page', slug='o-nas') }}">O nas</a>
+        <a href="{{ url_for('page', slug='blog') }}">Blog</a>
+        <a href="{{ url_for('page', slug='subskrypcja') }}">Subskrypcja</a>
+    </nav>
+
+    <a class="desktop-home-contact" href="{{ url_for('page', slug='kontakt') }}">Kontakt <span aria-hidden="true">→</span></a>
+
+    <button class="menu-button circle-menu" type="button" data-menu-button aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<div class="mobile-panel" id="mobile-menu" data-mobile-panel aria-hidden="true">
+    <div class="mobile-panel-card ramotion-menu-card">
+        <nav class="mobile-panel-inner ramotion-menu" aria-label="Menu mobilne">
+            <a class="mobile-panel-link" style="--item-index:0" href="{{ url_for('index') }}">Strona główna</a>
+            <button class="mobile-panel-link mobile-panel-button has-arrow" style="--item-index:1" type="button" data-submenu-open="services">Usługi <span aria-hidden="true">→</span></button>
+            <a class="mobile-panel-link" style="--item-index:2" href="{{ url_for('page', slug='o-nas') }}">O nas</a>
+            <a class="mobile-panel-link" style="--item-index:3" href="{{ url_for('page', slug='blog') }}">Blog</a>
+            <a class="mobile-panel-link" style="--item-index:4" href="{{ url_for('page', slug='subskrypcja') }}">Subskrypcja</a>
+            <a class="mobile-panel-link" style="--item-index:5" href="{{ url_for('page', slug='kontakt') }}">Kontakt</a>
+        </nav>
+
+        <div class="mobile-subpanel" data-submenu="services" aria-hidden="true">
+            <nav class="mobile-submenu-list" aria-label="Usługi">
+                <a style="--sub-index:0" href="{{ url_for('page', slug='strony-www') }}">strony www</a>
+                <a style="--sub-index:1" href="{{ url_for('page', slug='sklepy-online') }}">sklepy online</a>
+                <a style="--sub-index:2" href="{{ url_for('page', slug='marketing') }}">marketing</a>
+            </nav>
+            <button class="mobile-subpanel-back" type="button" data-submenu-back aria-label="Wróć">←</button>
+            <button class="mobile-subpanel-close" type="button" data-menu-close aria-label="Zamknij menu">×</button>
+        </div>
+
+        <button class="mobile-panel-close" type="button" data-menu-close aria-label="Zamknij menu">×</button>
+    </div>
+</div>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <div class="footer-brand">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/smotrych_icon.svg', v='20260524_home_desktop_01') }}" alt="" aria-hidden="true">
+        <span class="brand-text">SMOTRYCH <strong>DIGITAL</strong></span>
+    </div>
+    <p>Cyfrowe rozwiązania, które napędzają prawdziwy rozwój.</p>
+    <nav aria-label="Stopka">
+        <a href="{{ url_for('page', slug='uslugi') }}">Usługi</a>
+        <a href="{{ url_for('page', slug='blog') }}">Blog</a>
+        <a href="{{ url_for('page', slug='subskrypcja') }}">Subskrypcja</a>
+        <a href="{{ url_for('page', slug='kontakt') }}">Kontakt</a>
+    </nav>
+    <small>© 2026 Smotrych Digital. Polityka prywatności.</small>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js', v='20260524_home_desktop_01') }}"></script>
+</body>
+</html>

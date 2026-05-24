@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}FAQ — Smotrych Digital{% endblock %}
+{% block content %}
+{% include "page_hero.html" %}
+<section class="section">
+    <div class="container faq-list">
+        {% for item in faq %}
+        <details>
+            <summary>{{ item.q }}</summary>
+            <p>{{ item.a }}</p>
+        </details>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,679 @@
+{% extends "base.html" %}
+{% block title %}Sklepy online — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="shops-reference-page">
+    <div class="shops-reference-shell reveal">
+        <div class="shops-reference-card" role="img" aria-label="Abstrakcyjne tło dla usługi sklepy online">
+            <h1><span>Sklepy</span><span>online</span></h1>
+        </div>
+        <p class="shops-reference-lead">Tworzymy sklepy internetowe z czytelnym katalogiem, płatnościami online, wygodną ścieżką zamówienia i strukturą gotową pod sprzedaż oraz SEO.</p>
+        <a class="shops-reference-cta" href="{{ url_for('page', slug='kontakt') }}">Wyceń sklep <span aria-hidden="true">→</span></a>
+
+        <div class="shops-reference-stats reveal" data-countup-group>
+            <article>
+                <span>Integracje płatności i dostaw</span>
+                <strong><span class="stats-counter" data-start="1" data-target="20" data-suffix="+">20+</span></strong>
+            </article>
+            <article>
+                <span>Warianty produktów, filtry i sortowanie</span>
+                <strong><span class="stats-counter" data-start="1" data-target="250" data-suffix="+">250+</span></strong>
+            </article>
+            <article>
+                <span>Checkout uproszczony do prostych kroków</span>
+                <strong><span class="stats-counter" data-start="1" data-target="3">3</span></strong>
+            </article>
+            <article>
+                <span>Projektowane z priorytetem mobile commerce</span>
+                <strong><span class="stats-counter" data-start="1" data-target="100" data-suffix="%">100%</span></strong>
+            </article>
+        </div>
+    </div>
+</section>
+<section class="shops-reference-clients-section">
+    <div class="shops-reference-shell shops-reference-clients reveal">
+        <h2>Nasi klienci</h2>
+        <p>
+            Współpracujemy z markami e-commerce, beauty i usługowymi,
+            tworząc sklepy online, które łączą estetykę, zaufanie i
+            realną sprzedaż.
+        </p>
+
+        <div class="client-logo-rotator" data-logo-rotator aria-label="Logotypy klientów">
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/blue-circuit-logo-circle.png', v='20260523_strony_www_16') }}" alt="Lumiáge">
+                <span class="client-wordmark">Lumiáge</span>
+            </div>
+            <div class="client-logo-item is-text" data-logo-item data-has-circle="false">
+                <span class="client-wordmark">Lasertulowyxlevage</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/dm-logo-circle.png', v='20260523_strony_www_16') }}" alt="DocuBeauty">
+                <span class="client-wordmark">DocuBeauty</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/x-estetik-logo-circle.png', v='20260523_strony_www_16') }}" alt="X-Estetik">
+                <span class="client-wordmark">X-Estetik</span>
+            </div>
+            <div class="client-logo-item is-text" data-logo-item data-has-circle="false">
+                <span class="client-wordmark">SEOMotive</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/poniedzialek-kosmetyka-logo-circle.png', v='20260523_strony_www_16') }}" alt="Poniedziałek Kosmetyka">
+                <span class="client-wordmark">poniedziałek_kosmetyka</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/instaelite-logo-circle.png', v='20260523_strony_www_16') }}" alt="InstaElite">
+                <span class="client-wordmark">InstaElite</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/3pierogi-pierogarnia-logo-circle.png', v='20260523_strony_www_16') }}" alt="Wezpierozki">
+                <span class="client-wordmark">Wezpierozki</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/kosmetik-studio-kassel-circle.png', v='20260523_strony_www_16') }}" alt="Kosmetik Studio Kassel">
+                <span class="client-wordmark">Kosmetik Studio Kassel</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="shops-reference-cases-section">
+    <div class="shops-reference-shell shops-reference-cases">
+        <div class="shops-reference-cases-heading">
+            <h2>Sprawdzone realizacje i case studies</h2>
+            <a href="{{ url_for('page', slug='portfolio') }}">Zobacz więcej prac <span aria-hidden="true">→</span></a>
+        </div>
+        <p>
+            Wiarygodność budujemy przez realne projekty: sklepy online,
+            strony sprzedażowe i systemy, które pomagają markom prezentować
+            ofertę, przyjmować zamówienia i skalować sprzedaż cyfrową.
+        </p>
+
+        <div class="home-project-feed shops-reference-project-feed">
+            {% for item in home_cases %}
+            <article class="home-project-card reveal" style="--i: {{ loop.index0 }}">
+                <div class="home-project-image-wrap {{ item.layout|default('photo') }} {{ item.image_class|default('') }}">
+                    <img src="{{ url_for('static', filename=item.image, v='20260523_strony_www_16') }}" alt="{{ item.title }} — podgląd projektu">
+                </div>
+                <div class="home-project-copy">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.text }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section class="websites-testimonials-section shops-reference-testimonials-section">
+    <div class="container websites-testimonials reveal" data-testimonials-section>
+        <div class="websites-testimonials-heading">
+            <h2><span>Co mówią nasi</span><span>partnerzy</span></h2>
+            <span class="websites-testimonials-kicker">Opinie <span aria-hidden="true">→</span></span>
+        </div>
+
+        <div class="websites-testimonials-slider" data-testimonials>
+            <div class="websites-testimonials-topbar">
+                <div class="websites-testimonial-company" data-testimonial-company aria-live="polite"></div>
+                <div class="websites-testimonials-controls" aria-label="Nawigacja opinii">
+                    <button class="websites-testimonials-arrow" type="button" data-testimonial-prev aria-label="Poprzednia opinia">←</button>
+                    <span class="websites-testimonials-count" data-testimonial-count>1 / 6</span>
+                    <button class="websites-testimonials-arrow" type="button" data-testimonial-next aria-label="Następna opinia">→</button>
+                </div>
+            </div>
+
+            <div class="websites-testimonials-list">
+                <article class="websites-testimonial-slide is-active" data-testimonial-slide data-company="Lumiàge">
+                    <p class="websites-testimonial-quote">„Smotrych Digital uporządkował naszą ofertę i ubrał ją w elegancki, premium wygląd. Strona wreszcie prowadzi klienta krok po kroku, a rozmowy sprzedażowe zaczynają się dużo szybciej, bo najważniejsze rzeczy są jasne już od pierwszego wejścia.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-center-woman.png') }}" alt="Klara Modzelewska">
+                        <div>
+                            <strong>Klara Modzelewska</strong>
+                            <span>Dyrektor operacyjna</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="X-Levage">
+                    <p class="websites-testimonial-quote">„Zależało nam na stronie, która pokaże technologię bez chaosu i bez przeładowania treścią. Dostaliśmy nowoczesny projekt, czytelną strukturę i spójny kierunek komunikacji. Efekt? Więcej jakościowych zapytań i dużo lepsze pierwsze wrażenie.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-left-man.png') }}" alt="Maksymilian Rogalski">
+                        <div>
+                            <strong>Maksymilian Rogalski</strong>
+                            <span>Dyrektor ds. rozwoju biznesu</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="DocuBeauty">
+                    <p class="websites-testimonial-quote">„Najbardziej cenimy to, że cały proces był prosty i konkretny. Smotrych Digital połączył sprzedaż, estetykę i wygodę zakupów w jednym miejscu. Klienci szybciej odnajdują produkty, a my mamy wreszcie sklep, który wygląda profesjonalnie i działa bezproblemowo.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-left-woman.png') }}" alt="Milena Zawadzka">
+                        <div>
+                            <strong>Milena Zawadzka</strong>
+                            <span>Specjalistka ds. relacji z klientami</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="X-Estetik">
+                    <p class="websites-testimonial-quote">„Potrzebowaliśmy strony, która nie tylko dobrze wygląda, ale też porządkuje komunikację marki. Zespół świetnie wyczuł nasz styl, dopracował przekaz i zadbał o detale. Całość jest nowoczesna, wiarygodna i bardzo wygodna do dalszego rozwijania.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-center-man.png') }}" alt="Tymon Wierzbicki">
+                        <div>
+                            <strong>Tymon Wierzbicki</strong>
+                            <span>Strateg marki i komunikacji</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Poniedziałek Kosmetyka">
+                    <p class="websites-testimonial-quote">„Bardzo zależało mi na lekkiej, kobiecej stronie, która od razu budzi zaufanie. Projekt wygląda subtelnie, ale jednocześnie jest praktyczny — klientki szybko widzą zabiegi, mogą się ze mną skontaktować i wiedzą, czego się spodziewać. Dokładnie o taki efekt chodziło.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-right-woman.png') }}" alt="Iga Romanowska">
+                        <div>
+                            <strong>Iga Romanowska</strong>
+                            <span>Konsultantka ds. wdrożeń cyfrowych</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Kosmetik Studio Kassel">
+                    <p class="websites-testimonial-quote">„Od początku zależało nam na stronie, która będzie elegancka, czytelna i gotowa pod kampanie. Smotrych Digital połączył formularz rezerwacji, SEO, analitykę i Google Ads w jeden spójny system. Dzięki temu nie tylko lepiej się prezentujemy, ale realnie pozyskujemy nowych klientów.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-right-man.png') }}" alt="Bruno Kaczmarek">
+                        <div>
+                            <strong>Bruno Kaczmarek</strong>
+                            <span>Kierownik projektów cyfrowych</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="websites-founder-section shops-reference-founder-section" id="kontakt-stanislav">
+    <div class="container websites-founder reveal">
+        <div class="websites-founder-intro shops-reference-founder-intro">
+            <h2>Stanislav Smotrych</h2>
+            <p>Za projektem stoi bezpośrednia współpraca ze mną — projektuję, programuję i wdrażam sklepy online od początku do końca. Programuję od 5 lat, studiowałem informatykę na Politechnice Rzeszowskiej i współpracuję z agencjami marketingowymi jako podwykonawca. Sklepy tworzę indywidualnie, własnym kodem, bez szablonów i bez WordPressa. Pracuję szybko, a płatność rozliczam dopiero na końcu.</p>
+        </div>
+
+        <a class="websites-founder-card" href="https://wa.me/48723698910" target="_blank" rel="noopener noreferrer" aria-label="Napisz do Stanislava Smotrycha na WhatsApp">
+            <div class="websites-founder-person">
+                <img src="{{ url_for('static', filename='img/team/stanislav-smotrych.png', v='20260523_seo_tabs_01') }}" alt="Stanislav Smotrych">
+                <div>
+                    <strong>Stanislav Smotrych</strong>
+                    <span>Napisz do nas na WhatsApp</span>
+                </div>
+            </div>
+
+            <div class="websites-founder-contact" aria-hidden="true">
+                <span class="websites-founder-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.04 2C6.72 2 2.42 6.18 2.42 11.35c0 1.82.54 3.52 1.46 4.95L2.9 22l5.9-1.55a9.9 9.9 0 0 0 3.24.54c5.32 0 9.63-4.18 9.63-9.35C21.67 6.18 17.36 2 12.04 2Zm0 17.08c-1 0-1.98-.2-2.88-.6l-.41-.18-3.5.92.94-3.36-.27-.43a7.13 7.13 0 0 1-1.1-3.81c0-3.97 3.27-7.2 7.22-7.2 3.98 0 7.22 3.23 7.22 7.2 0 3.97-3.24 7.2-7.22 7.2Zm3.96-5.4c-.22-.11-1.28-.63-1.48-.7-.2-.07-.34-.11-.48.11-.15.22-.56.7-.69.84-.13.15-.25.17-.47.06a5.9 5.9 0 0 1-1.74-1.06 6.57 6.57 0 0 1-1.2-1.48c-.13-.22-.01-.34.1-.45.1-.1.22-.25.33-.37.11-.13.15-.22.22-.36.07-.15.03-.28-.02-.4-.06-.11-.49-1.17-.67-1.61-.18-.42-.37-.37-.49-.38h-.42c-.15 0-.39.06-.6.28-.2.22-.78.76-.78 1.86 0 1.1.8 2.15.91 2.3.11.15 1.59 2.54 3.93 3.46 2.33.91 2.33.6 2.75.57.42-.03 1.28-.52 1.46-1.03.18-.51.18-.95.13-1.04-.05-.09-.19-.15-.4-.26Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="websites-founder-phone">+48 723 698 910</span>
+                <span class="websites-founder-arrow">↗</span>
+            </div>
+        </a>
+
+        <div class="shops-reference-founder-cta-wrap">
+            <a class="shops-reference-cta shops-reference-founder-cta" href="{{ url_for('page', slug='kontakt') }}">Porozmawiajmy <span aria-hidden="true">→</span></a>
+        </div>
+    </div>
+</section>
+
+
+<section class="shops-reference-commerce-section" id="sklepy-online-zakres">
+    <div class="shops-reference-shell shops-reference-commerce reveal">
+        <div class="shops-reference-commerce-heading">
+            <h2>Sklep internetowy gotowy do sprzedaży, płatności i codziennej obsługi</h2>
+            <p>Projektujemy i wdrażamy sklepy online, które od początku mają uporządkowany katalog produktów, szybki koszyk, płatności online, formularze kontaktowe oraz techniczną bazę pod SEO i kampanie reklamowe. Celem nie jest sama strona z produktami, ale system, który pomaga klientowi kupić bez zbędnego tarcia.</p>
+        </div>
+
+        <div class="shops-reference-commerce-blocks">
+            <article>
+                <h3>Płatności online i checkout</h3>
+                <p>Podłączamy płatności kartą, BLIK, Apple Pay i Google Pay, konfigurujemy koszyk oraz prostą ścieżkę zamówienia, żeby klient mógł szybko przejść od produktu do opłaconego zakupu.</p>
+                <p>Checkout projektujemy tak, aby był czytelny na telefonie, bez zbędnych pól i bez elementów, które rozpraszają użytkownika w momencie decyzji.</p>
+            </article>
+            <article>
+                <h3>Samodzielne zarządzanie produktami</h3>
+                <p>Po wdrożeniu możesz samodzielnie dodawać nowe produkty, zmieniać opisy, ceny i zdjęcia, ukrywać pozycje oraz usuwać produkty bez pisania do programisty przy każdej małej zmianie.</p>
+                <p>Panel administracyjny porządkujemy tak, aby codzienna obsługa sklepu była prosta: produkty, kategorie, warianty, stany i podstawowe treści są dostępne w jednym logicznym miejscu.</p>
+            </article>
+            <article>
+                <h3>Domena, serwer i formularze</h3>
+                <p>Podłączamy domenę, konfigurujemy serwer, certyfikat SSL, podstawowe zabezpieczenia i formularze kontaktowe. Wiadomości ze sklepu mogą trafiać bezpośrednio na wskazany adres e-mail.</p>
+                <p>Przygotowujemy też techniczne elementy startowe: przekierowania, strukturę adresów, podstawową analitykę oraz konfigurację, która pozwala później rozwijać sklep bez przepisywania wszystkiego od zera.</p>
+            </article>
+            <article>
+                <h3>Gotowość pod sprzedaż, SEO i kampanie</h3>
+                <p>Budujemy strukturę kategorii, kart produktów i treści tak, aby sklep był zrozumiały dla klienta oraz przygotowany pod widoczność w Google, reklamy i późniejsze skalowanie sprzedaży.</p>
+                <p>Możemy przygotować też integracje pod analitykę, mierzenie konwersji, kampanie Google Ads oraz dalsze działania marketingowe po uruchomieniu sklepu.</p>
+            </article>
+        </div>
+
+        <div class="shops-reference-commerce-second">
+            <h2>Rozliczenie dopiero po zakończeniu pracy i akceptacji</h2>
+            <p>Najpierw przygotowujemy projekt, wdrażamy sklep, konfigurujemy najważniejsze funkcje i pokazujemy gotowy efekt. Płatność realizujesz dopiero po zakończeniu pracy oraz akceptacji sklepu, dzięki czemu widzisz finalny rezultat przed rozliczeniem.</p>
+        </div>
+    </div>
+</section>
+
+<section class="shops-reference-benefits-section">
+    <div class="shops-reference-shell shops-reference-benefits-grid reveal">
+        <article class="shops-reference-benefit-card">
+            <span>01</span>
+            <h3>Integracje dostawy i statusów zamówień</h3>
+            <p>Możemy podłączyć popularne metody dostawy, podstawowe statusy realizacji oraz przejrzyste komunikaty, żeby klient wiedział, co dzieje się z zamówieniem na każdym etapie.</p>
+            <p>To ogranicza liczbę pytań po zakupie i poprawia całe doświadczenie obsługi sklepu.</p>
+        </article>
+
+        <article class="shops-reference-benefit-card">
+            <span>02</span>
+            <h3>Wersja mobilna nastawiona na konwersję</h3>
+            <p>Projekt sklepu przygotowujemy mobile-first, bo większość wejść i zakupów odbywa się dziś z telefonu. Układ, przyciski, koszyk i formularze są zoptymalizowane pod małe ekrany.</p>
+            <p>Dzięki temu sklep nie tylko dobrze wygląda, ale faktycznie sprzedaje wygodniej na mobile.</p>
+        </article>
+
+        <article class="shops-reference-benefit-card">
+            <span>03</span>
+            <h3>Automatyczne wiadomości i kontakt z klientem</h3>
+            <p>Konfigurujemy podstawowe wiadomości e-mail: potwierdzenia zamówień, formularze kontaktowe i komunikaty, które pomagają uporządkować kontakt z klientem po zakupie.</p>
+            <p>To oszczędza czas i daje bardziej profesjonalne doświadczenie bez ręcznego pilnowania każdego etapu.</p>
+        </article>
+
+        <article class="shops-reference-benefit-card">
+            <span>04</span>
+            <h3>Szkolenie z obsługi i łatwe zarządzanie</h3>
+            <p>Po wdrożeniu pokazujemy, jak działa panel sklepu, gdzie edytować produkty, kategorie, zdjęcia i podstawowe treści, abyś mógł samodzielnie prowadzić sklep na co dzień.</p>
+            <p>Nie zostajesz z samym kodem — dostajesz narzędzie, które naprawdę potrafisz obsłużyć.</p>
+        </article>
+
+        <article class="shops-reference-benefit-card">
+            <span>05</span>
+            <h3>Indywidualny kod zamiast ciężkiego szablonu</h3>
+            <p>Sklep tworzymy od podstaw pod Twoją ofertę i proces sprzedaży, bez przypadkowego przeładowania gotowymi motywami. To daje większą kontrolę nad wyglądem, funkcjami i wydajnością.</p>
+            <p>Efekt jest lżejszy, bardziej uporządkowany i łatwiejszy do dalszego rozwijania wraz z biznesem.</p>
+        </article>
+    </div>
+</section>
+
+<section class="shops-reference-summary-section">
+    <div class="shops-reference-shell shops-reference-summary reveal">
+        <h2>Sklep internetowy, który można rozwijać razem z biznesem</h2>
+        <p>Dobry sklep online powinien nie tylko dobrze wyglądać w dniu startu, ale też pozwalać na wygodne rozwijanie oferty, dodawanie nowych kategorii, uruchamianie kampanii i ulepszanie sprzedaży bez przebudowy całego systemu. Dlatego projektujemy sklepy tak, aby były czytelne dla klienta, proste w obsłudze po Twojej stronie i technicznie gotowe na dalszy wzrost. Otrzymujesz rozwiązanie, które wspiera sprzedaż dziś, a jednocześnie zostawia przestrzeń na rozwój jutro.</p>
+    </div>
+</section>
+
+<section class="shops-reference-pills-section">
+    <div class="shops-reference-shell shops-reference-pills reveal" data-shop-pills>
+        <div class="shops-reference-pills-row" role="tablist" aria-label="Zakres funkcji sklepu online">
+            <button class="shops-reference-pill is-active" type="button" role="tab" aria-selected="true" data-shop-pill="payments">płatności online</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="catalog">katalog produktów</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="mobile">mobile commerce</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="delivery">dostawa i zamówienia</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="admin">panel administracyjny</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="seo">SEO techniczne</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="analytics">analityka i piksele</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="security">serwer i bezpieczeństwo</button>
+            <button class="shops-reference-pill" type="button" role="tab" aria-selected="false" data-shop-pill="growth">rozwój po wdrożeniu</button>
+        </div>
+
+        <div class="shops-reference-pill-panels">
+            <article class="shops-reference-pill-panel is-active" data-shop-panel="payments" role="tabpanel">
+                <ul>
+                    <li><strong>Co zawiera:</strong> Podłączenie płatności kartą, BLIK, Apple Pay i Google Pay oraz konfigurację czytelnego checkoutu.</li>
+                    <li><strong>Dlaczego to ważne:</strong> Im mniej tarcia przy płatności, tym większa szansa, że klient faktycznie sfinalizuje zakup.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> sklepów, które chcą skrócić drogę od wejścia na stronę do opłaconego zamówienia.</li>
+                    <li><strong>Co otrzymujesz:</strong> prosty koszyk, przejrzyste formularze, wygodną obsługę płatności i logiczny proces zamówienia.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="catalog" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> strukturę kategorii, karty produktów, warianty, filtry, sortowanie i podstawową logikę prezentacji oferty.</li>
+                    <li><strong>Dlaczego to ważne:</strong> klient szybciej odnajduje właściwy produkt i lepiej rozumie ofertę sklepu.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> marek z większą liczbą produktów, kolekcji, rozmiarów lub wersji kolorystycznych.</li>
+                    <li><strong>Co otrzymujesz:</strong> uporządkowany katalog, czytelne opisy, wygodne przeglądanie oraz spójną prezentację asortymentu.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="mobile" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> projekt mobile-first, dopracowane przyciski, czytelne karty produktów i checkout wygodny na telefonie.</li>
+                    <li><strong>Dlaczego to ważne:</strong> większość ruchu zakupowego pochodzi dziś z urządzeń mobilnych.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> sklepów nastawionych na szybkie zakupy z reklam, social media i wyników Google.</li>
+                    <li><strong>Co otrzymujesz:</strong> lepszą użyteczność, szybsze przechodzenie przez koszyk i bardziej konwersyjny interfejs na mobile.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="delivery" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> podstawową logikę dostaw, opcje wysyłki, statusy zamówień i czytelne komunikaty dla klienta.</li>
+                    <li><strong>Dlaczego to ważne:</strong> jasna informacja o dostawie obniża liczbę pytań i zwiększa poczucie bezpieczeństwa po zakupie.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> sklepów realizujących wysyłki krajowe lub łączących kilka metod dostawy.</li>
+                    <li><strong>Co otrzymujesz:</strong> bardziej przewidywalny proces zamówienia i wygodniejszą obsługę klienta po sprzedaży.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="admin" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> panel do samodzielnego dodawania, edytowania i usuwania produktów, zdjęć, cen i podstawowych treści.</li>
+                    <li><strong>Dlaczego to ważne:</strong> możesz zarządzać ofertą bez angażowania programisty do każdej drobnej zmiany.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> firm, które chcą aktualizować sklep regularnie i zachować niezależność w codziennej obsłudze.</li>
+                    <li><strong>Co otrzymujesz:</strong> prostszy workflow, większą kontrolę nad ofertą i wygodne zarządzanie sprzedażą na co dzień.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="seo" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> techniczną bazę pod SEO, przyjazne adresy URL, logiczne nagłówki, meta strukturę i porządek treści.</li>
+                    <li><strong>Dlaczego to ważne:</strong> dobrze zbudowany sklep łatwiej rozwija widoczność produktów i kategorii w Google.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> marek planujących wzrost ruchu organicznego obok kampanii płatnych.</li>
+                    <li><strong>Co otrzymujesz:</strong> sklep gotowy pod dalsze działania SEO bez konieczności przebudowy fundamentów technicznych.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="analytics" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> wdrożenie podstawowej analityki, pikseli reklamowych i pomiaru kluczowych zdarzeń zakupowych.</li>
+                    <li><strong>Dlaczego to ważne:</strong> bez danych trudno optymalizować kampanie, ścieżkę zakupu i rentowność sklepu.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> sklepów rozwijanych z Google Ads, Meta Ads i analizą konwersji.</li>
+                    <li><strong>Co otrzymujesz:</strong> lepszy wgląd w wyniki, możliwość mierzenia sprzedaży i podstawę do dalszej optymalizacji działań.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="security" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> podłączenie domeny, konfigurację serwera, SSL, formularza kontaktowego i podstawowych zabezpieczeń startowych.</li>
+                    <li><strong>Dlaczego to ważne:</strong> sklep musi być nie tylko estetyczny, ale też stabilny i bezpieczny dla klientów.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> firm, które chcą otrzymać gotowe technicznie wdrożenie bez szukania kilku wykonawców osobno.</li>
+                    <li><strong>Co otrzymujesz:</strong> spójny start sklepu, poprawną infrastrukturę i mniej problemów technicznych po uruchomieniu.</li>
+                </ul>
+            </article>
+
+            <article class="shops-reference-pill-panel" data-shop-panel="growth" role="tabpanel" hidden>
+                <ul>
+                    <li><strong>Co zawiera:</strong> architekturę sklepu przygotowaną pod dalsze integracje, rozbudowę oferty i rozwój kampanii sprzedażowych.</li>
+                    <li><strong>Dlaczego to ważne:</strong> sklep powinien rosnąć razem z biznesem, a nie blokować kolejne etapy rozwoju.</li>
+                    <li><strong>Najlepiej sprawdza się dla:</strong> marek planujących kolejne kolekcje, ekspansję oferty lub zwiększenie budżetów reklamowych.</li>
+                    <li><strong>Co otrzymujesz:</strong> bardziej elastyczne wdrożenie, które łatwiej rozwijać po starcie bez kosztownego przepisywania wszystkiego.</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="shops-reference-included-section">
+    <div class="shops-reference-shell reveal" data-shop-accordion>
+        <div class="shops-reference-included-cta-wrap">
+            <a class="shops-reference-cta shops-reference-founder-cta shops-reference-included-cta" href="{{ url_for('page', slug='kontakt') }}">Porozmawiajmy <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="shops-reference-included-heading">
+            <h2>Co obejmuje wdrożenie</h2>
+        </div>
+
+        <div class="shops-reference-accordion-list">
+            <article class="shops-reference-accordion-item is-open">
+                <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="true">
+                    <span>W pakiecie sklepu online</span>
+                    <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div class="shops-reference-accordion-panel" data-shop-accordion-panel>
+                    <ul>
+                        <li>Indywidualny projekt i wdrożenie sklepu dopasowane do oferty oraz procesu sprzedaży.</li>
+                        <li>Podłączenie płatności online: BLIK, karta, Apple Pay, Google Pay oraz uporządkowany checkout.</li>
+                        <li>Konfiguracja katalogu produktów, kategorii, podstawowych wariantów oraz panelu do samodzielnej edycji oferty.</li>
+                        <li>Podłączenie domeny, serwera, SSL i formularza kontaktowego, aby sklep był technicznie gotowy do startu.</li>
+                        <li>Wsparcie przy uruchomieniu i pokazanie, jak zarządzać produktami po wdrożeniu.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="shops-reference-accordion-item">
+                <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                    <span>Dodatkowo możliwe do rozbudowy</span>
+                    <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                    <ul>
+                        <li>Rozszerzona analityka, piksele reklamowe i pomiar konwersji pod kampanie sprzedażowe.</li>
+                        <li>Integracje dodatkowych metod dostawy, automatyzacji e-mailowych lub bardziej rozbudowanych funkcji sklepu.</li>
+                        <li>Przygotowanie sklepu pod SEO, rozwój treści kategorii i dalszą optymalizację sprzedaży.</li>
+                        <li>Stałe wsparcie po starcie, kolejne sekcje, dodatkowe podstrony lub rozwój nowych funkcjonalności.</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="shops-reference-process-section">
+    <div class="shops-reference-shell shops-reference-process reveal">
+        <div class="shops-reference-process-heading">
+            <h2>Jak wygląda realizacja sklepu online</h2>
+            <p>Zwykle realizuję sklep internetowy w czasie do jednego miesiąca. Proces dzielę na kilka jasnych etapów, dzięki czemu od początku wiadomo, co dzieje się na każdym kroku: od zebrania założeń, przez projekt i wdrożenie, aż po testy, poprawki i publikację gotowego sklepu.</p>
+        </div>
+
+        <div class="shops-reference-process-tabs" aria-hidden="true">
+            <span class="is-active">Proces</span>
+            <span>Realizacja do 1 miesiąca</span>
+        </div>
+
+        <div class="shops-reference-process-cards">
+            <article class="shops-reference-process-card">
+                <span>1 tydzień</span>
+                <h3>Strategia i struktura sklepu</h3>
+                <p>Ustalamy cele, analizujemy ofertę, układ kategorii, typy produktów oraz funkcje potrzebne w sklepie.</p>
+                <p><strong>Efekt etapu:</strong> uporządkowana struktura sklepu, zakres wdrożenia i kierunek projektu.</p>
+            </article>
+
+            <article class="shops-reference-process-card">
+                <span>2 tydzień</span>
+                <h3>Projekt interfejsu i doświadczenia zakupowego</h3>
+                <p>Przygotowuję wygląd sklepu, kluczowe sekcje, karty produktów, koszyk i ścieżkę zamówienia.</p>
+                <p><strong>Efekt etapu:</strong> czytelny projekt UI/UX dopasowany do Twojej marki i sprzedaży.</p>
+            </article>
+
+            <article class="shops-reference-process-card">
+                <span>3 tydzień</span>
+                <h3>Wdrożenie i integracje</h3>
+                <p>Programuję sklep, podłączam płatności, formularze, domenę, serwer oraz konfiguruję panel administracyjny.</p>
+                <p><strong>Efekt etapu:</strong> działający sklep z podstawowymi funkcjami sprzedażowymi i technicznymi.</p>
+            </article>
+
+            <article class="shops-reference-process-card">
+                <span>4 tydzień</span>
+                <h3>Testy, poprawki i publikacja</h3>
+                <p>Sprawdzam działanie sklepu na urządzeniach, nanoszę poprawki, uruchamiam sklep i pokazuję, jak nim zarządzać.</p>
+                <p><strong>Efekt etapu:</strong> gotowy do startu sklep online przekazany po Twojej akceptacji.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="shops-reference-important-section">
+    <div class="shops-reference-shell shops-reference-important reveal" data-shop-accordion>
+        <div class="shops-reference-important-heading">
+            <h2>Ważne rzeczy, które warto wiedzieć przed startem sklepu</h2>
+            <p>Klienci planujący sklep internetowy najczęściej pytają nie tylko o wygląd, ale też o codzienną obsługę, przygotowanie materiałów, koszty dodatkowe i rozwój po uruchomieniu. Poniżej zebrałem najważniejsze kwestie, które dobrze ustalić jeszcze przed rozpoczęciem pracy, żeby cały proces przebiegał spokojnie i bez niedomówień.</p>
+        </div>
+
+        <div class="shops-reference-accordion-list">
+            <article class="shops-reference-accordion-item is-open">
+                <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="true">
+                    <span>Jakie materiały warto przygotować wcześniej</span>
+                    <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div class="shops-reference-accordion-panel" data-shop-accordion-panel>
+                    <ul>
+                        <li>Dobrze mieć przygotowane logo, kolory marki, opisy kategorii, zdjęcia produktów i podstawowe informacje o dostawie.</li>
+                        <li>Jeśli nie wszystko jest gotowe, można startować etapami, ale im lepiej zebrane materiały, tym sprawniej przebiega realizacja.</li>
+                        <li>Największy wpływ na tempo wdrożenia mają zwykle treści, zdjęcia oraz uporządkowanie oferty produktowej.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="shops-reference-accordion-item">
+                <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                    <span>Czy później można samodzielnie prowadzić sklep</span>
+                    <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                    <ul>
+                        <li>Tak — sklep przygotowuję tak, abyś mógł samodzielnie dodawać, edytować i usuwać produkty bez ciągłej pomocy programisty.</li>
+                        <li>Po wdrożeniu pokazuję, gdzie zarządza się ofertą, cenami, zdjęciami i podstawowymi ustawieniami sklepu.</li>
+                        <li>Dzięki temu codzienna obsługa jest wygodna, a zmiany można wprowadzać szybko we własnym zakresie.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="shops-reference-accordion-item">
+                <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                    <span>Jakie dodatkowe koszty mogą się pojawić</span>
+                    <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                    <ul>
+                        <li>Poza samym wdrożeniem zwykle trzeba uwzględnić koszty domeny, serwera oraz ewentualnych zewnętrznych usług płatniczych.</li>
+                        <li>W zależności od potrzeb mogą dojść też koszty kampanii reklamowych, bardziej rozbudowanej analityki lub dodatkowych integracji.</li>
+                        <li>Najważniejsze jest to, że takie elementy można omówić na starcie i jasno rozpisać jeszcze przed rozpoczęciem projektu.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="shops-reference-accordion-item">
+                <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                    <span>Co dzieje się po uruchomieniu sklepu</span>
+                    <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                </button>
+                <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                    <ul>
+                        <li>Po starcie sklep może być dalej rozwijany: o nowe sekcje, dodatkowe funkcje, treści SEO, kampanie reklamowe lub kolejne integracje.</li>
+                        <li>Można też stopniowo ulepszać konwersję na podstawie danych i zachowań użytkowników, zamiast zmieniać wszystko naraz.</li>
+                        <li>Dzięki temu sklep staje się nie tylko gotową stroną, ale bazą pod dalszy rozwój sprzedaży online.</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="shops-reference-faq-services-section">
+    <div class="shops-reference-shell shops-reference-faq-services reveal" data-faq-services-tabs>
+        <div class="shops-reference-faq-services-tabs" role="tablist" aria-label="FAQ i usługi dodatkowe">
+            <button class="shops-reference-faq-tab is-active" type="button" role="tab" aria-selected="true" data-faq-services-tab="faq">FAQ</button>
+            <button class="shops-reference-faq-tab" type="button" role="tab" aria-selected="false" data-faq-services-tab="services">Usługi dodatkowe</button>
+        </div>
+
+        <div class="shops-reference-faq-services-panel is-active" data-faq-services-panel="faq" role="tabpanel">
+            <div class="shops-reference-accordion-list" data-shop-accordion>
+                <article class="shops-reference-accordion-item is-open">
+                    <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="true">
+                        <span>Ile trwa stworzenie sklepu internetowego?</span>
+                        <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="shops-reference-accordion-panel" data-shop-accordion-panel>
+                        <ul>
+                            <li>Najczęściej realizuję sklep online w czasie do około jednego miesiąca.</li>
+                            <li>Dokładny termin zależy od zakresu funkcji, ilości produktów i szybkości dostarczania materiałów.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="shops-reference-accordion-item">
+                    <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                        <span>Czy mogę samodzielnie zarządzać produktami po wdrożeniu?</span>
+                        <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                        <ul>
+                            <li>Tak, sklep przygotowuję tak, aby można było samodzielnie dodawać, zmieniać i usuwać produkty.</li>
+                            <li>Po wdrożeniu pokazuję, gdzie zarządza się ofertą, zdjęciami, cenami i podstawowymi treściami.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="shops-reference-accordion-item">
+                    <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                        <span>Jakie płatności można podłączyć w sklepie?</span>
+                        <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                        <ul>
+                            <li>Mogę wdrożyć popularne metody płatności takie jak BLIK, karta, Apple Pay i Google Pay.</li>
+                            <li>Dobór integracji zależy od potrzeb sklepu i wybranego operatora płatności.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="shops-reference-accordion-item">
+                    <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                        <span>Czy pomagasz z domeną, serwerem i formularzem kontaktowym?</span>
+                        <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                        <ul>
+                            <li>Tak, mogę podłączyć domenę, serwer, certyfikat SSL i formularz kontaktowy.</li>
+                            <li>Dzięki temu sklep jest gotowy technicznie do startu bez szukania kilku różnych wykonawców.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="shops-reference-accordion-item">
+                    <button class="shops-reference-accordion-trigger" type="button" data-shop-accordion-trigger aria-expanded="false">
+                        <span>Kiedy następuje rozliczenie za projekt?</span>
+                        <span class="shops-reference-accordion-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="shops-reference-accordion-panel" data-shop-accordion-panel hidden>
+                        <ul>
+                            <li>Płatność rozliczam po zakończeniu pracy i Twojej akceptacji gotowego sklepu.</li>
+                            <li>Najpierw widzisz efekt i sprawdzasz wdrożenie, a dopiero potem finalizujemy rozliczenie.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="shops-reference-faq-services-panel" data-faq-services-panel="services" role="tabpanel" hidden>
+            <div class="shops-reference-services-grid">
+                <article class="shops-reference-service-card">
+                    <h3>SEO dla sklepu</h3>
+                    <p>Optymalizacja struktury, kategorii i podstaw technicznych pod lepszą widoczność w Google.</p>
+                </article>
+                <article class="shops-reference-service-card">
+                    <h3>Google Ads</h3>
+                    <p>Przygotowanie sklepu pod kampanie sprzedażowe oraz podłączenie analityki i pomiaru konwersji.</p>
+                </article>
+                <article class="shops-reference-service-card">
+                    <h3>Meta Ads</h3>
+                    <p>Wsparcie dla kampanii na Facebooku i Instagramie wraz z podstawowym setupem piksela.</p>
+                </article>
+                <article class="shops-reference-service-card">
+                    <h3>Copywriting produktów</h3>
+                    <p>Pomoc w uporządkowaniu opisów, komunikacji oferty i tekstów, które lepiej sprzedają.</p>
+                </article>
+                <article class="shops-reference-service-card">
+                    <h3>Analityka sprzedaży</h3>
+                    <p>Konfiguracja zdarzeń, podstawowego śledzenia i danych potrzebnych do dalszej optymalizacji sklepu.</p>
+                </article>
+                <article class="shops-reference-service-card">
+                    <h3>Stały rozwój sklepu</h3>
+                    <p>Dalsze rozbudowy po wdrożeniu: nowe sekcje, funkcje, podstrony i usprawnienia konwersji.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="shops-reference-faq-cta-wrap">
+            <a class="shops-reference-faq-cta" href="{{ url_for('page', slug='kontakt') }}">Porozmawiajmy <span aria-hidden="true">→</span></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

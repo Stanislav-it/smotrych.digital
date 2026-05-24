@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Smotrych Digital — Strony, które pracują{% endblock %}
+
+{% block content %}
+<section class="home-hero-section">
+    <div class="container home-hero-wrap reveal">
+        <h1 class="home-hero-title">Strony, które pracują.</h1>
+        <p class="home-hero-lead">Projektujemy nowoczesne strony internetowe dla marek, które chcą wyglądać profesjonalnie i rosnąć szybciej online.</p>
+    </div>
+</section>
+
+<section class="home-projects-section">
+    <div class="container">
+        <div class="home-pill-scroller reveal" aria-label="Najważniejsze cechy">
+            {% for pill in home_pills %}
+            <span class="home-pill {% if pill.active %}is-active{% endif %}">{{ pill.label }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="home-project-feed-desktop" aria-label="Wybrane realizacje desktop">
+            <div class="home-project-column home-project-column--left">
+                {% for item in home_cases %}
+                {% if loop.index0 % 2 == 0 %}
+                <article class="home-project-card reveal" style="--i: {{ loop.index0 }}">
+                    <div class="home-project-image-wrap {{ item.layout|default('photo') }} {{ item.image_class|default('') }}">
+                        <img src="{{ url_for('static', filename=item.image, v='20260523_strony_www_16') }}" alt="{{ item.title }} — podgląd projektu strony">
+                    </div>
+                    <div class="home-project-copy">
+                        <h2>{{ item.title }}</h2>
+                        <p>{{ item.text }}</p>
+                    </div>
+                </article>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="home-project-column home-project-column--right">
+                {% for item in home_cases %}
+                {% if loop.index0 % 2 == 1 %}
+                <article class="home-project-card reveal" style="--i: {{ loop.index0 }}">
+                    <div class="home-project-image-wrap {{ item.layout|default('photo') }} {{ item.image_class|default('') }}">
+                        <img src="{{ url_for('static', filename=item.image, v='20260523_strony_www_16') }}" alt="{{ item.title }} — podgląd projektu strony">
+                    </div>
+                    <div class="home-project-copy">
+                        <h2>{{ item.title }}</h2>
+                        <p>{{ item.text }}</p>
+                    </div>
+                </article>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="home-project-feed home-project-feed-mobile">
+            {% for item in home_cases %}
+            <article class="home-project-card reveal" style="--i: {{ loop.index0 }}">
+                <div class="home-project-image-wrap {{ item.layout|default('photo') }} {{ item.image_class|default('') }}">
+                    <img src="{{ url_for('static', filename=item.image, v='20260523_strony_www_16') }}" alt="{{ item.title }} — podgląd projektu strony">
+                </div>
+                <div class="home-project-copy">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.text }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="home-bottom-cta-section">
+    <div class="container">
+        <a href="{{ url_for('page', slug='kontakt') }}" class="home-talk-pill reveal">
+            <span>Porozmawiajmy</span>
+            <strong aria-hidden="true">→</strong>
+        </a>
+
+        <div class="home-newsletter-card reveal">
+            <div class="home-newsletter-copy">
+                <h2>Zapisz się do naszego newslettera</h2>
+                <p>Otrzymuj krótkie aktualizacje o stronach internetowych, SEO, Google Ads i nowych realizacjach Smotrych Digital.</p>
+            </div>
+            <a class="home-newsletter-desktop-button" href="{{ url_for('page', slug='subskrypcja') }}">Subskrybuj</a>
+            <form class="home-newsletter-form" action="mailto:kontakt@smotrych.com" method="post" enctype="text/plain">
+                <label class="sr-only" for="newsletter-email">Twój e-mail</label>
+                <input id="newsletter-email" name="email" type="email" placeholder="Twój adres e-mail" required>
+                <button type="submit">Subskrybuj</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

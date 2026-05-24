@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Kontakt — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="contact-page section">
+    <div class="contact-shell reveal">
+        <div class="contact-hero">
+            <h1>Kontakt</h1>
+            <p class="contact-intro">
+                Pomagamy ambitnym markom tworzyć dopracowane strony internetowe, skuteczne kampanie Google Ads i nowoczesne systemy wzrostu.
+            </p>
+        </div>
+
+        <a class="contact-email" href="mailto:kontakt@smotrych.com">
+            <span>kontakt@smotrych.com</span>
+            <span class="contact-email-icon" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="contact-divider" aria-hidden="true">
+            <span></span>
+            <em>lub</em>
+            <span></span>
+        </div>
+
+        <div class="contact-form-block">
+            <h2>Opisz swój projekt</h2>
+            <form class="contact-form" action="mailto:kontakt@smotrych.com" method="post" enctype="text/plain">
+                <label>
+                    <span class="sr-only">Imię i nazwisko</span>
+                    <input type="text" name="full_name" placeholder="Imię i nazwisko">
+                </label>
+                <label>
+                    <span class="sr-only">Adres e-mail</span>
+                    <input type="email" name="email" placeholder="email@firma.pl">
+                </label>
+                <label>
+                    <span class="sr-only">Opis projektu</span>
+                    <textarea name="project_description" rows="7" placeholder="Krótko opisz projekt, zakres prac i cele, które chcesz osiągnąć."></textarea>
+                </label>
+                <p class="contact-form-note">
+                    Wysyłając formularz, zgadzasz się na kontakt zwrotny.
+                </p>
+                <button class="contact-submit" type="submit">Wyślij zapytanie</button>
+            </form>
+        </div>
+
+        <div class="contact-links">
+            <a href="https://wa.me/48723698910" target="_blank" rel="noopener">WhatsApp <span>→</span></a>
+            <a href="{{ url_for('page', slug='portfolio') }}">Portfolio <span>→</span></a>
+        </div>
+
+        <div class="contact-footer-grid">
+            <div class="contact-detail-card">
+                <p>E-mail</p>
+                <a href="mailto:kontakt@smotrych.com">kontakt@smotrych.com</a>
+            </div>
+            <div class="contact-detail-card">
+                <p>Telefon</p>
+                <a href="tel:+48723698910">+48 723 698 910</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

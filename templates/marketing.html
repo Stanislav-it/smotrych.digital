@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+{% block title %}Marketing — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="marketing-reference-page">
+    <div class="marketing-reference-shell reveal">
+        <div class="marketing-reference-card" role="img" aria-label="Abstrakcyjne tło dla usługi marketingu cyfrowego">
+            <h1>Marketing</h1>
+        </div>
+        <p class="marketing-reference-lead">Podłączamy analitykę, konfigurujemy Google Ads, Merchant Center i remarketing, wdrażamy startowe SEO oraz prowadzimy bieżącą optymalizację działań marketingowych. Dbamy też o kontrolę formularzy, e-maili, telefonów, analizę zapytań i miesięczne raportowanie, aby marketing opierał się na realnych danych i efektach.</p>
+        <a class="marketing-reference-cta" href="{{ url_for('page', slug='kontakt') }}">Porozmawiajmy <span aria-hidden="true">→</span></a>
+    </div>
+</section>
+<section class="marketing-reference-clients-section">
+    <div class="marketing-reference-shell marketing-reference-clients reveal">
+        <h2>Nasi partnerzy</h2>
+        <p>Wspieramy marki usługowe, sklepy internetowe i lokalne biznesy w działaniach marketingowych opartych na danych. Łączymy analitykę, reklamę, SEO i optymalizację, aby kampanie przekładały się na realne zapytania, telefony i sprzedaż.</p>
+
+        <div class="client-logo-rotator" data-logo-rotator aria-label="Logotypy partnerów">
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/blue-circuit-logo-circle.png', v='20260523_strony_www_16') }}" alt="Lumiáge">
+                <span class="client-wordmark">Lumiáge</span>
+            </div>
+            <div class="client-logo-item is-text" data-logo-item data-has-circle="false">
+                <span class="client-wordmark">Lasertulowyxlevage</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/dm-logo-circle.png', v='20260523_strony_www_16') }}" alt="DocuBeauty">
+                <span class="client-wordmark">DocuBeauty</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/x-estetik-logo-circle.png', v='20260523_strony_www_16') }}" alt="X-Estetik">
+                <span class="client-wordmark">X-Estetik</span>
+            </div>
+            <div class="client-logo-item is-text" data-logo-item data-has-circle="false">
+                <span class="client-wordmark">SEOMotive</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/poniedzialek-kosmetyka-logo-circle.png', v='20260523_strony_www_16') }}" alt="Poniedziałek Kosmetyka">
+                <span class="client-wordmark">poniedziałek_kosmetyka</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/instaelite-logo-circle.png', v='20260523_strony_www_16') }}" alt="InstaElite">
+                <span class="client-wordmark">InstaElite</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/3pierogi-pierogarnia-logo-circle.png', v='20260523_strony_www_16') }}" alt="Wezpierozki">
+                <span class="client-wordmark">Wezpierozki</span>
+            </div>
+            <div class="client-logo-item is-circle" data-logo-item data-has-circle="true">
+                <img class="client-circle-logo" src="{{ url_for('static', filename='img/clients/kosmetik-studio-kassel-circle.png', v='20260523_strony_www_16') }}" alt="Kosmetik Studio Kassel">
+                <span class="client-wordmark">Kosmetik Studio Kassel</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="websites-testimonials-section marketing-reviews-section">
+    <div class="container websites-testimonials marketing-testimonials reveal" data-testimonials-section>
+        <div class="websites-testimonials-heading marketing-testimonials-heading">
+            <h2><span>Opinie</span><span>partnerów</span></h2>
+            <span class="websites-testimonials-kicker">Reviews <span aria-hidden="true">→</span></span>
+        </div>
+
+        <div class="websites-testimonials-slider" data-testimonials>
+            <div class="websites-testimonials-topbar">
+                <div class="websites-testimonial-company" data-testimonial-company aria-live="polite"></div>
+                <div class="websites-testimonials-controls" aria-label="Nawigacja opinii">
+                    <button class="websites-testimonials-arrow" type="button" data-testimonial-prev aria-label="Poprzednia opinia">←</button>
+                    <span class="websites-testimonials-count" data-testimonial-count>1 / 5</span>
+                    <button class="websites-testimonials-arrow" type="button" data-testimonial-next aria-label="Następna opinia">→</button>
+                </div>
+            </div>
+
+            <div class="websites-testimonials-list">
+                <article class="websites-testimonial-slide is-active" data-testimonial-slide data-company="X-Estetik">
+                    <p class="websites-testimonial-quote">„Po wdrożeniu kampanii i analityki wreszcie zaczęliśmy widzieć, które działania naprawdę dają zapytania. Wszystko zostało ustawione konkretnie i bez chaosu, a raporty są czytelne i pomocne w podejmowaniu decyzji.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-center-man.png') }}" alt="Tymon Wierzbicki" loading="lazy">
+                        <div>
+                            <strong>Tymon Wierzbicki</strong>
+                            <span>Strateg marki i komunikacji</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Poniedziałek Kosmetyka">
+                    <p class="websites-testimonial-quote">„Największa różnica to porządek: formularze działają, reklamy są mierzone, a ruch z kampanii można wreszcie ocenić na podstawie danych. Dzięki temu marketing nie jest zgadywaniem, tylko procesem, który realnie wspiera rozwój.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-right-woman.png') }}" alt="Iga Romanowska" loading="lazy">
+                        <div>
+                            <strong>Iga Romanowska</strong>
+                            <span>Właścicielka marki beauty</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Lumiàge">
+                    <p class="websites-testimonial-quote">„Doceniamy to, że działania reklamowe, SEO i analityka zostały spięte w jeden logiczny system. Widać, skąd przychodzą klienci, które kampanie pracują najlepiej i gdzie warto zwiększać budżet.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-center-woman.png') }}" alt="Klara Modzelewska" loading="lazy">
+                        <div>
+                            <strong>Klara Modzelewska</strong>
+                            <span>Dyrektor operacyjna</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="Kosmetik Studio Kassel">
+                    <p class="websites-testimonial-quote">„Potrzebowaliśmy wsparcia, które połączy stronę, kampanie i kontrolę zapytań w jeden przewidywalny model działania. Smotrych Digital ustawił wszystko tak, że marketing stał się prostszy w obsłudze i bardziej skuteczny.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/top-right-man.png') }}" alt="Bruno Kaczmarek" loading="lazy">
+                        <div>
+                            <strong>Bruno Kaczmarek</strong>
+                            <span>Kierownik projektów cyfrowych</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="websites-testimonial-slide" data-testimonial-slide data-company="DocuBeauty">
+                    <p class="websites-testimonial-quote">„Od razu było widać, że działania są prowadzone z myślą o konkretnym wyniku. Mamy uporządkowaną analitykę, remarketing i lepszą kontrolę nad tym, jak użytkownicy przechodzą od reklamy do kontaktu.”</p>
+                    <div class="websites-testimonial-person">
+                        <img src="{{ url_for('static', filename='img/testimonials/bottom-left-woman.png') }}" alt="Milena Zawadzka" loading="lazy">
+                        <div>
+                            <strong>Milena Zawadzka</strong>
+                            <span>Specjalistka ds. relacji z klientami</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="marketing-reviews-cta-wrap">
+            <a class="marketing-reference-cta marketing-reviews-cta" href="{{ url_for('page', slug='kontakt') }}">Porozmawiajmy <span aria-hidden="true">→</span></a>
+        </div>
+    </div>
+</section>
+
+<section class="marketing-benefits-section">
+    <div class="marketing-reference-shell marketing-benefits reveal">
+        <h2>Korzyści z marketingu opartego na danych</h2>
+
+        <div class="marketing-benefits-list">
+            <article>
+                <h3>Więcej jakościowych zapytań</h3>
+                <p>Kampanie i SEO ustawiamy tak, aby pracowały na realne formularze, telefony i kontakt z klientami, a nie tylko na sam ruch na stronie.</p>
+            </article>
+
+            <article>
+                <h3>Pełna kontrola efektów</h3>
+                <p>Podłączona analityka pokazuje, które źródła generują zapytania, gdzie użytkownicy odpadają i które działania warto dalej rozwijać.</p>
+            </article>
+
+            <article>
+                <h3>Lepsze wykorzystanie budżetu</h3>
+                <p>Regularna optymalizacja pozwala przesuwać środki tam, gdzie kampanie i frazy przynoszą najlepsze wyniki dla Twojego biznesu.</p>
+            </article>
+
+            <article>
+                <h3>Powrót do zainteresowanych klientów</h3>
+                <p>Remarketing pomaga docierać ponownie do osób, które odwiedziły stronę, ale nie zostawiły jeszcze zapytania lub nie wykonały telefonu.</p>
+            </article>
+
+            <article>
+                <h3>Stały rozwój widoczności</h3>
+                <p>SEO, Search Console i bieżąca kontrola stron pomagają budować długoterminową widoczność, która nie kończy się razem z kampanią reklamową.</p>
+            </article>
+        </div>
+    </div>
+</section>
+<section class="marketing-why-section">
+    <div class="marketing-reference-shell marketing-why reveal">
+        <div class="marketing-why-heading">
+            <h2>Dlaczego ten model marketingu działa?</h2>
+            <span>Więcej konkretów <span aria-hidden="true">→</span></span>
+        </div>
+
+        <p class="marketing-why-lead">Łączymy analitykę, Google Ads, Merchant Center, remarketing i SEO w jeden uporządkowany system. Dzięki temu każda strona jest poprawnie mierzona, kampanie są prowadzone na podstawie danych, a miesięczna obsługa obejmuje także kontrolę formularzy, e-maili, telefonów i raportowanie. To model dla firm, które chcą widzieć, co realnie daje marketing.</p>
+
+        <div class="marketing-why-stats">
+            <article>
+                <span>strony objęte jednym systemem</span>
+                <strong><span class="stats-counter" data-start="1" data-target="3">3</span></strong>
+            </article>
+            <article>
+                <span>obszarów wsparcia marketingowego</span>
+                <strong><span class="stats-counter" data-start="1" data-target="5">5</span></strong>
+            </article>
+            <article>
+                <span>dni bieżącej optymalizacji w miesiącu</span>
+                <strong><span class="stats-counter" data-start="1" data-target="30" data-suffix="+">30+</span></strong>
+            </article>
+            <article>
+                <span>rozliczenie po wykonaniu i akceptacji</span>
+                <strong><span class="stats-counter" data-start="1" data-target="100" data-suffix="%">100%</span></strong>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+<section class="websites-founder-section shops-reference-founder-section marketing-founder-section" id="kontakt-stanislav">
+    <div class="container websites-founder reveal">
+        <div class="websites-founder-intro shops-reference-founder-intro marketing-founder-intro">
+            <h2>Stanislav Smotrych</h2>
+            <p>Za działaniami marketingowymi stoję bezpośrednio ja — Stanislav Smotrych. Łączę analitykę, Google Ads, SEO, remarketing i bieżącą optymalizację w jeden prosty system pracy. Dbam nie tylko o konfigurację kampanii, ale też o kontrolę formularzy, telefonów, e-maili i jakość zapytań. Pracuję konkretnie, bez zbędnej teorii, a rozliczenie następuje po wykonaniu prac i zgodnie z ustaleniami.</p>
+        </div>
+
+        <a class="websites-founder-card" href="https://wa.me/48723698910" target="_blank" rel="noopener noreferrer" aria-label="Napisz do Stanislava Smotrycha na WhatsApp">
+            <div class="websites-founder-person">
+                <img src="{{ url_for('static', filename='img/team/stanislav-smotrych.png', v='20260523_seo_tabs_01') }}" alt="Stanislav Smotrych">
+                <div>
+                    <strong>Stanislav Smotrych</strong>
+                    <span>Napisz do nas na WhatsApp</span>
+                </div>
+            </div>
+
+            <div class="websites-founder-contact" aria-hidden="true">
+                <span class="websites-founder-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.04 2C6.72 2 2.42 6.18 2.42 11.35c0 1.82.54 3.52 1.46 4.95L2.9 22l5.9-1.55a9.9 9.9 0 0 0 3.24.54c5.32 0 9.63-4.18 9.63-9.35C21.67 6.18 17.36 2 12.04 2Zm0 17.08c-1 0-1.98-.2-2.88-.6l-.41-.18-3.5.92.94-3.36-.27-.43a7.13 7.13 0 0 1-1.1-3.81c0-3.97 3.27-7.2 7.22-7.2 3.98 0 7.22 3.23 7.22 7.2 0 3.97-3.24 7.2-7.22 7.2Zm3.96-5.4c-.22-.11-1.28-.63-1.48-.7-.2-.07-.34-.11-.48.11-.15.22-.56.7-.69.84-.13.15-.25.17-.47.06a5.9 5.9 0 0 1-1.74-1.06 6.57 6.57 0 0 1-1.2-1.48c-.13-.22-.01-.34.1-.45.1-.1.22-.25.33-.37.11-.13.15-.22.22-.36.07-.15.03-.28-.02-.4-.06-.11-.49-1.17-.67-1.61-.18-.42-.37-.37-.49-.38h-.42c-.15 0-.39.06-.6.28-.2.22-.78.76-.78 1.86 0 1.1.8 2.15.91 2.3.11.15 1.59 2.54 3.93 3.46 2.33.91 2.33.6 2.75.57.42-.03 1.28-.52 1.46-1.03.18-.51.18-.95.13-1.04-.05-.09-.19-.15-.4-.26Z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="websites-founder-phone">+48 723 698 910</span>
+                <span class="websites-founder-arrow">↗</span>
+            </div>
+        </a>
+
+        <div class="shops-reference-founder-cta-wrap">
+            <a class="shops-reference-cta shops-reference-founder-cta" href="{{ url_for('page', slug='kontakt') }}">Porozmawiajmy <span aria-hidden="true">→</span></a>
+        </div>
+    </div>
+</section>
+
+<section class="marketing-categories-section">
+    <div class="marketing-reference-shell marketing-categories reveal" data-marketing-tabs>
+        
+
+        <div class="marketing-categories-tabs" role="tablist" aria-label="Kategorie usług marketingowych">
+            <button class="marketing-categories-tab is-active" type="button" role="tab" aria-selected="true" data-marketing-tab="channels">Kanały</button>
+            <button class="marketing-categories-tab" type="button" role="tab" aria-selected="false" data-marketing-tab="process">Proces</button>
+            <button class="marketing-categories-tab" type="button" role="tab" aria-selected="false" data-marketing-tab="industries">Branże</button>
+        </div>
+
+        <div class="marketing-categories-panel is-active" data-marketing-panel="channels" role="tabpanel">
+            <div class="marketing-cards-grid marketing-cards-grid--mint">
+                <article class="marketing-category-card">
+                    <h3>Google Ads</h3>
+                    <p>Tworzymy i prowadzimy kampanie ukierunkowane na zapytania, telefony i realne działania klientów.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>SEO</h3>
+                    <p>Porządkujemy techniczne podstawy, strukturę i treści, aby Twoje strony rosły w wynikach wyszukiwania.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>Analityka</h3>
+                    <p>Konfigurujemy pomiar formularzy, połączeń, kampanii i zachowań użytkowników na wszystkich stronach.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>Remarketing</h3>
+                    <p>Wracamy do użytkowników, którzy już odwiedzili stronę, aby zwiększać liczbę powrotów i konwersji.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="marketing-categories-panel" data-marketing-panel="process" role="tabpanel" hidden>
+            <div class="marketing-cards-grid marketing-cards-grid--sage">
+                <article class="marketing-category-card">
+                    <span>01</span>
+                    <h3>Audyt i cele</h3>
+                    <p>Sprawdzamy strony, źródła ruchu, formularze i dotychczasowe działania, aby ustalić priorytety.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <span>02</span>
+                    <h3>Konfiguracja startowa</h3>
+                    <p>Podłączamy analitykę, kampanie, Merchant Center, remarketing i podstawy SEO.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <span>03</span>
+                    <h3>Stała optymalizacja</h3>
+                    <p>Na bieżąco poprawiamy reklamy, analizujemy zapytania, kontrolujemy formularze i jakość leadów.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <span>04</span>
+                    <h3>Raport i rekomendacje</h3>
+                    <p>Przedstawiamy wyniki, wnioski i kolejne działania potrzebne do dalszego wzrostu.</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="marketing-categories-panel" data-marketing-panel="industries" role="tabpanel" hidden>
+            <div class="marketing-cards-grid marketing-cards-grid--lilac">
+                <article class="marketing-category-card">
+                    <h3>Sklepy internetowe</h3>
+                    <p>Reklamy, analityka i remarketing wspierające sprzedaż produktów oraz rozwój kampanii e-commerce.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>Usługi lokalne</h3>
+                    <p>Marketing nastawiony na telefony, formularze i klientów z konkretnego miasta lub regionu.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>Beauty & estetyka</h3>
+                    <p>Kampanie dla salonów, klinik i marek beauty, które chcą zwiększać liczbę rezerwacji i zapytań.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>B2B i firmy usługowe</h3>
+                    <p>Wsparcie dla firm, które pozyskują leady, budują zaufanie i chcą lepiej mierzyć skuteczność działań.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>Edukacja i kursy</h3>
+                    <p>Promocja szkół, kursów i programów szkoleniowych z naciskiem na zapisy oraz analizę jakości ruchu.</p>
+                </article>
+                <article class="marketing-category-card">
+                    <h3>Gastronomia i lokale</h3>
+                    <p>Działania dla restauracji i lokali, które chcą zwiększać rozpoznawalność, ruch i liczbę zamówień.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-bottom-cta-section marketing-home-bottom-section">
+    <div class="container">
+        <a href="{{ url_for('page', slug='kontakt') }}" class="home-talk-pill reveal">
+            <span>Porozmawiajmy</span>
+            <strong aria-hidden="true">→</strong>
+        </a>
+
+        <div class="home-newsletter-card reveal">
+            <div class="home-newsletter-copy">
+                <h2>Zapisz się do naszego newslettera</h2>
+                <p>Otrzymuj krótkie aktualizacje o marketingu, SEO, Google Ads, analityce i nowych realizacjach Smotrych Digital.</p>
+            </div>
+            <form class="home-newsletter-form" action="mailto:kontakt@smotrych.com" method="post" enctype="text/plain">
+                <label class="sr-only" for="marketing-newsletter-email">Twój e-mail</label>
+                <input id="marketing-newsletter-email" name="email" type="email" placeholder="Twój adres e-mail" required>
+                <button type="submit">Subskrybuj</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

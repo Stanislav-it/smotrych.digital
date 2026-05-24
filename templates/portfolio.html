@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Portfolio — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="visual-page-hero visual-page-hero-portfolio">
+    <div class="visual-page-bg" aria-hidden="true"></div>
+    <div class="visual-page-shade" aria-hidden="true"></div>
+    <div class="visual-page-content reveal">
+        <p class="visual-page-kicker">{{ page.kicker }}</p>
+        <span class="visual-page-line" aria-hidden="true"></span>
+        <h1>Projekty,<br>które tworzą<br><em>wartość</em></h1>
+        <p>Kompleksowe podejście do każdego projektu. Strategia, design i technologia w służbie Twojego biznesu.</p>
+        <a class="visual-page-cta" href="#realizacje">Zobacz realizacje <span>→</span></a>
+    </div>
+</section>
+
+<section class="portfolio-editorial" id="realizacje">
+    <div class="portfolio-editorial-shell">
+        <div class="portfolio-editorial-top reveal">
+            <div class="portfolio-editorial-intro">
+                <p class="portfolio-editorial-kicker">NASZE PORTFOLIO</p>
+                <span class="portfolio-editorial-line" aria-hidden="true"></span>
+                <h1>STRONY,<br>KTÓRE SPRZEDAJĄ</h1>
+            </div>
+            <a class="portfolio-editorial-all" href="mailto:kontakt@smotrych.com">ZOBACZ WSZYSTKIE PROJEKTY <span>→</span></a>
+        </div>
+
+        <div class="portfolio-editorial-list">
+            {% for project in projects %}
+            <article class="portfolio-editorial-item reveal" style="--i: {{ loop.index0 }}">
+                <div class="portfolio-editorial-phone-wrap">
+                    <img class="portfolio-editorial-phone" src="{{ url_for('static', filename=project.image) }}" alt="Podgląd projektu {{ project.name }} na telefonie" loading="lazy">
+                </div>
+                <div class="portfolio-editorial-copy">
+                    <span class="portfolio-editorial-number">{{ '%02d' % loop.index }}</span>
+                    <h2>{{ project.name|upper }}</h2>
+                    <p class="portfolio-editorial-category">{{ project.category }}</p>
+                    <span class="portfolio-editorial-copy-line" aria-hidden="true"></span>
+                    {% if project.name == 'Velora' %}
+                    <p>Nowoczesny sklep internetowy dla marki luksusowych torebek skórzanych.</p>
+                    <p>Elegancki design, intuicyjna nawigacja i płynny proces zakupowy.</p>
+                    <a class="portfolio-editorial-link" href="mailto:kontakt@smotrych.com">ZOBACZ REALIZACJĘ <span>→</span></a>
+                    {% elif project.name == 'Terra' %}
+                    <p>Strona hotelu butikowego łącząca luksus z naturą i spokojem.</p>
+                    <p>Inspirująca opowieść marki i płynna ścieżka rezerwacji online.</p>
+                    <a class="portfolio-editorial-link" href="mailto:kontakt@smotrych.com">ODKRYJ PROJEKT <span>→</span></a>
+                    {% else %}
+                    <p>Strona dla firmy doradczej wspierającej biznes w rozwoju finansowym.</p>
+                    <p>Mocny przekaz, czytelna struktura i konkretne wyniki.</p>
+                    <a class="portfolio-editorial-link" href="mailto:kontakt@smotrych.com">ZOBACZ REALIZACJĘ <span>→</span></a>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="portfolio-editorial-cta reveal" style="--i: 4">
+            <div class="portfolio-editorial-cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" role="img">
+                    <circle cx="32" cy="32" r="30"></circle>
+                    <path d="M21 24c0-2.2 1.8-4 4-4h14c6.6 0 12 5.4 12 12s-5.4 12-12 12h-5l-8 6 1.7-6.2c-3.7-1-6.7-4.5-6.7-8.8V24z"></path>
+                </svg>
+            </div>
+            <div class="portfolio-editorial-cta-copy">
+                <h3>Masz pomysł na projekt?</h3>
+                <p>Porozmawiajmy o rozwiązaniu, które wyniesie Twój biznes wyżej.</p>
+            </div>
+            <a class="portfolio-editorial-cta-button" href="mailto:kontakt@smotrych.com">NAPISZ DO NAS <span>→</span></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

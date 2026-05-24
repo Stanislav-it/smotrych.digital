@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Subskrypcja — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="subscribe-page">
+    <div class="subscribe-container">
+        <div class="subscribe-hero reveal">
+            <h1>Newsletter</h1>
+            <p class="subscribe-lead">Zapisz się, aby otrzymywać krótkie aktualizacje o stronach internetowych, sklepach online, SEO, kampaniach Google Ads i nowych realizacjach Smotrych Digital.</p>
+        </div>
+
+        <form class="subscribe-form reveal" action="#" method="post">
+            <label>
+                <span class="sr-only">Adres e-mail</span>
+                <input type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email">
+            </label>
+            <label>
+                <span class="sr-only">Imię</span>
+                <input type="text" name="first_name" placeholder="Imię" autocomplete="given-name">
+            </label>
+            <label>
+                <span class="sr-only">Nazwisko</span>
+                <input type="text" name="last_name" placeholder="Nazwisko" autocomplete="family-name">
+            </label>
+            <label>
+                <span class="sr-only">Nazwa firmy</span>
+                <input type="text" name="company" placeholder="Nazwa firmy" autocomplete="organization">
+            </label>
+            <button class="subscribe-submit" type="submit">Subskrybuj</button>
+        </form>
+
+        <div class="subscribe-links reveal">
+            <div>
+                <h2>Social</h2>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">Behance</a>
+                <a href="#">Dribbble</a>
+                <a href="#">X (Twitter)</a>
+                <a href="#">Clutch</a>
+            </div>
+            <div>
+                <h2>Company</h2>
+                <a href="{{ url_for('page', slug='o-nas') }}">O nas</a>
+                <a href="{{ url_for('page', slug='proces') }}">Proces</a>
+                <a href="{{ url_for('page', slug='uslugi') }}">Usługi</a>
+                <a href="{{ url_for('page', slug='blog') }}">Blog</a>
+                <a href="{{ url_for('page', slug='kontakt') }}">Kontakt</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

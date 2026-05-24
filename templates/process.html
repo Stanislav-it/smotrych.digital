@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Proces — Smotrych Digital{% endblock %}
+{% block content %}
+{% include "page_hero.html" %}
+<section class="section">
+    <div class="container process-page">
+        {% for number, title, text in process %}
+        <article>
+            <span>{{ number }}</span>
+            <div>
+                <h2>{{ title }}</h2>
+                <p>{{ text }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

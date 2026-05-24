@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Usługi — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="services-visual-hero">
+    <div class="services-visual-bg" aria-hidden="true"></div>
+    <div class="services-visual-shade" aria-hidden="true"></div>
+    <div class="services-visual-content reveal">
+        <p class="services-visual-kicker">{{ page.kicker }}</p>
+        <h1>{{ page.title }}</h1>
+        <span class="services-visual-line" aria-hidden="true"></span>
+        <p>{{ page.lead }}</p>
+    </div>
+</section>
+
+<section class="services-light-showcase" id="oferta">
+    <div class="services-light-ornament" aria-hidden="true"></div>
+    <div class="services-light-container">
+        <div class="services-light-head reveal">
+            <p class="services-light-eyebrow">NASZE USŁUGI</p>
+            <div class="services-light-divider" aria-hidden="true"><span></span><i></i><span></span></div>
+            <h2>CO ROBIMY</h2>
+            <p class="services-light-lead">Łączymy strategię, design i technologię,<br>aby tworzyć skuteczne rozwiązania cyfrowe.</p>
+        </div>
+
+        <div class="services-light-list">
+            {% for service in services %}
+            <article class="services-light-card reveal" id="{{ service.slug }}" style="--i: {{ loop.index0 }}">
+                <div class="services-light-icon{% if service.icon == 'ads' %} has-image{% endif %}" aria-hidden="true">
+                    {% if service.icon == 'web' %}
+                    <svg viewBox="0 0 72 72" role="img">
+                        <rect x="12" y="17" width="48" height="34" rx="1.5"></rect>
+                        <path d="M12 27h48M25 56h22M36 51v5"></path>
+                        <rect x="18" y="33" width="15" height="11" rx=".8"></rect>
+                        <rect x="39" y="33" width="15" height="11" rx=".8"></rect>
+                    </svg>
+                    {% elif service.icon == 'shop' %}
+                    <svg viewBox="0 0 72 72" role="img">
+                        <path d="M18 29h36l-4 27H22l-4-27z"></path>
+                        <path d="M25 29c0-7 4.8-13 11-13s11 6 11 13"></path>
+                        <path d="M27 40h18M27 48h12"></path>
+                    </svg>
+                    {% elif service.icon == 'ads' %}
+                    <img src="{{ url_for('static', filename='img/google-ads-icon.png') }}" alt="" loading="lazy">
+                    {% elif service.icon == 'seo' %}
+                    <svg viewBox="0 0 72 72" role="img">
+                        <circle cx="31" cy="31" r="19"></circle>
+                        <path d="M45 45l13 13"></path>
+                    </svg>
+                    {% elif service.icon == 'analytics' %}
+                    <svg viewBox="0 0 72 72" role="img">
+                        <path d="M18 55V36h9v19M32 55V28h9v27M46 55V18h9v37"></path>
+                        <path d="M14 55h45"></path>
+                    </svg>
+                    {% elif service.icon == 'meta' %}
+                    <svg viewBox="0 0 72 72" role="img">
+                        <path d="M13 44c5-18 11-25 18-25 7 0 10 14 15 25 3.2 6.7 7.2 9 11 7 5.6-3 2.8-17-3-24-4.2-5.1-9.3-7.5-15-3.5C34 27 29.5 36 26 44c-3.2 7-7.8 9.5-11.2 6.5C11.2 47.3 11.6 44.8 13 44z"></path>
+                    </svg>
+                    {% else %}
+                    <svg viewBox="0 0 72 72" role="img">
+                        <circle cx="36" cy="36" r="9"></circle>
+                        <path d="M36 14v8M36 50v8M20.4 20.4l5.7 5.7M45.9 45.9l5.7 5.7M14 36h8M50 36h8M20.4 51.6l5.7-5.7M45.9 26.1l5.7-5.7"></path>
+                        <path d="M36 22c7.7 0 14 6.3 14 14s-6.3 14-14 14-14-6.3-14-14 6.3-14 14-14z"></path>
+                    </svg>
+                    {% endif %}
+                </div>
+                <span class="services-light-rule" aria-hidden="true"></span>
+                <div class="services-light-copy">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.text }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section muted">
+    <div class="container feature-grid">
+        <article class="reveal" style="--i: 0">
+            <h3>Strategia przed projektem</h3>
+            <p>Najpierw ustalamy cele, odbiorców i ścieżkę konwersji. Dopiero potem projektujemy ekran.</p>
+        </article>
+        <article class="reveal" style="--i: 1">
+            <h3>Techniczna solidność</h3>
+            <p>Dbamy o szybkość, responsywność, bezpieczeństwo i czytelną strukturę pod SEO.</p>
+        </article>
+        <article class="reveal" style="--i: 2">
+            <h3>Wyniki po wdrożeniu</h3>
+            <p>Pomagamy mierzyć efekty, optymalizować kampanie i rozwijać stronę po publikacji.</p>
+        </article>
+    </div>
+</section>
+{% endblock %}
