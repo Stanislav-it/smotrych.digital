@@ -613,3 +613,65 @@
         initAboutAccordion();
     }
 }());
+
+// Force every internal page navigation to start from the top v20260525_scroll_top_01
+(function () {
+    try {
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+    } catch (error) {}
+
+    function shouldForceTop() {
+        return !window.location.hash;
+    }
+
+    function forceTop() {
+        if (!shouldForceTop()) return;
+        var root = document.documentElement;
+        var body = document.body;
+        var oldRootBehavior = root ? root.style.scrollBehavior : '';
+        var oldBodyBehavior = body ? body.style.scrollBehavior : '';
+        if (root) root.style.scrollBehavior = 'auto';
+        if (body) body.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        if (root) root.scrollTop = 0;
+        if (body) body.scrollTop = 0;
+        window.setTimeout(function () {
+            if (root) root.style.scrollBehavior = oldRootBehavior;
+            if (body) body.style.scrollBehavior = oldBodyBehavior;
+        }, 120);
+    }
+
+    document.addEventListener('click', function (event) {
+        var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+        if (!link) return;
+        var target = link.getAttribute('target');
+        if (target && target !== '_self') return;
+        var href = link.getAttribute('href') || '';
+        if (!href || href.charAt(0) === '#') return;
+        try {
+            var nextUrl = new URL(link.href, window.location.href);
+            if (nextUrl.origin === window.location.origin && !nextUrl.hash) {
+                try { sessionStorage.setItem('smotrychForceTop', '1'); } catch (error) {}
+            }
+        } catch (error) {}
+    }, true);
+
+    if (shouldForceTop()) {
+        forceTop();
+        window.setTimeout(forceTop, 0);
+        window.setTimeout(forceTop, 80);
+        window.setTimeout(forceTop, 250);
+        window.setTimeout(forceTop, 700);
+    }
+
+    window.addEventListener('pageshow', function () {
+        if (!shouldForceTop()) return;
+        forceTop();
+        window.setTimeout(forceTop, 0);
+        window.setTimeout(forceTop, 80);
+        window.setTimeout(forceTop, 250);
+        window.setTimeout(forceTop, 700);
+    });
+}());
