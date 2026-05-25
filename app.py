@@ -26,6 +26,9 @@ app.config.update(
     CONTACT_EMAIL=os.environ.get("CONTACT_EMAIL", "kontakt@smotrych.com"),
     CONTACT_PHONE=os.environ.get("CONTACT_PHONE", "+48 723 698 910"),
     MAIL_TO=os.environ.get("MAIL_TO", "kontakt@smotrych.com"),
+    SITE_URL=os.environ.get("SITE_URL", "https://smotrych.digital").rstrip("/"),
+    GTM_ID=os.environ.get("GTM_ID", "").strip(),
+    GA4_MEASUREMENT_ID=os.environ.get("GA4_MEASUREMENT_ID", "").strip(),
     SMTP_HOST=os.environ.get("SMTP_HOST", ""),
     SMTP_PORT=int(os.environ.get("SMTP_PORT", "587")),
     SMTP_USER=os.environ.get("SMTP_USER", ""),
@@ -534,6 +537,34 @@ def page(slug):
         current=slug,
     )
 
+
+
+
+@app.get("/robots.txt")
+def robots_txt():
+    site_url = app.config.get("SITE_URL", "https://smotrych.digital").rstrip("/")
+    body = "\n".join([
+        "User-agent: *",
+        "Allow: /",
+        f"Sitemap: {site_url}/sitemap.xml",
+        "",
+    ])
+    return app.response_class(body, mimetype="text/plain")
+
+
+@app.get("/sitemap.xml")
+def sitemap_xml():
+    from xml.sax.saxutils import escape
+
+    site_url = app.config.get("SITE_URL", "https://smotrych.digital").rstrip("/")
+    urls = [site_url + "/"]
+    urls.extend(f"{site_url}/{slug}" for slug in PAGES.keys())
+    items = "".join(
+        f"<url><loc>{escape(url)}</loc><changefreq>weekly</changefreq><priority>{'1.0' if url == site_url + '/' else '0.8'}</priority></url>"
+        for url in urls
+    )
+    xml = f"<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">{items}</urlset>"
+    return app.response_class(xml, mimetype="application/xml")
 
 @app.errorhandler(404)
 def not_found(error):

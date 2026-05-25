@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Smotrych Digital — nowoczesne strony internetowe, Google Ads i mierzalne wyniki.">
     <title>{% block title %}Smotrych Digital{% endblock %}</title>
+    {% set gtm_id = config.get('GTM_ID') %}
+    {% set ga4_measurement_id = config.get('GA4_MEASUREMENT_ID') %}
+    <!-- Google Consent Mode defaults + shared dataLayer -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        (function () {
+            var key = 'smotrych_cookie_consent_v1';
+            var legacyKey = 'smotrych_cookie_consent';
+            var analyticsGranted = false;
+            try {
+                var params = new URLSearchParams(window.location.search || '');
+                if (params.get('cookies') === 'reset') {
+                    localStorage.removeItem(key);
+                    localStorage.removeItem(legacyKey);
+                    document.cookie = key + '=; Max-Age=0; path=/; SameSite=Lax';
+                }
+                var stored = localStorage.getItem(key) || localStorage.getItem(legacyKey);
+                analyticsGranted = stored === 'analytics' || stored === 'granted' || stored === 'true' || stored === '1';
+            } catch (error) {}
+            window.smotrychAnalyticsGranted = analyticsGranted;
+            gtag('consent', 'default', {
+                ad_storage: analyticsGranted ? 'granted' : 'denied',
+                ad_user_data: analyticsGranted ? 'granted' : 'denied',
+                ad_personalization: analyticsGranted ? 'granted' : 'denied',
+                analytics_storage: analyticsGranted ? 'granted' : 'denied',
+                functionality_storage: 'granted',
+                security_storage: 'granted'
+            });
+        }());
+    </script>
+    {% if gtm_id %}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ gtm_id }}');</script>
+    <!-- End Google Tag Manager -->
+    {% endif %}
+    {% if ga4_measurement_id %}
+    <!-- Optional direct GA4 tag. Use only when GA4 is not configured inside GTM. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4_measurement_id }}"></script>
+    <script>
+        gtag('js', new Date());
+        gtag('config', '{{ ga4_measurement_id }}');
+    </script>
+    {% endif %}
     <script>
         document.documentElement.classList.add('js');
         (function () {
@@ -78,6 +126,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css', v='20260524_home_desktop_01') }}">
 </head>
 <body class="page-{{ current|default('home') }}">
+{% if gtm_id %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm_id }}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% endif %}
 <header class="site-header home-header" data-header>
     <a href="{{ url_for('index') }}" class="brand text-only" aria-label="Smotrych Digital — strona główna">
         <span class="brand-text">SMOTRYCH DIGITAL</span>
@@ -156,6 +210,129 @@
     </nav>
     <small>© 2026 Smotrych Digital. Polityka prywatności.</small>
 </footer>
+
+
+<div class="smotrych-cookie-banner" data-cookie-banner hidden>
+    <div class="smotrych-cookie-card" role="dialog" aria-live="polite" aria-label="Zgoda na cookies">
+        <div>
+            <strong>Cookies i analityka</strong>
+            <p>Używamy niezbędnych plików cookies oraz, za zgodą, analityki Google do mierzenia skuteczności strony i kampanii.</p>
+        </div>
+        <div class="smotrych-cookie-actions">
+            <button type="button" class="smotrych-cookie-secondary" data-cookie-essential>Tylko niezbędne</button>
+            <button type="button" class="smotrych-cookie-primary" data-cookie-analytics>Akceptuję analitykę</button>
+        </div>
+    </div>
+</div>
+<style>
+    .smotrych-cookie-banner{position:fixed;left:18px;right:18px;bottom:18px;z-index:9999;display:flex;justify-content:center;pointer-events:none}.smotrych-cookie-banner[hidden]{display:none}.smotrych-cookie-card{width:min(760px,100%);display:flex;gap:18px;align-items:center;justify-content:space-between;padding:18px 20px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:rgba(12,14,20,.94);box-shadow:0 22px 70px rgba(0,0,0,.28);backdrop-filter:blur(18px);color:#fff;pointer-events:auto}.smotrych-cookie-card strong{display:block;margin-bottom:6px;font-size:15px}.smotrych-cookie-card p{margin:0;color:rgba(255,255,255,.78);font-size:13px;line-height:1.5}.smotrych-cookie-actions{display:flex;gap:10px;flex-shrink:0}.smotrych-cookie-actions button{border:0;border-radius:999px;padding:11px 16px;font-weight:700;font-size:13px;cursor:pointer}.smotrych-cookie-secondary{background:rgba(255,255,255,.11);color:#fff}.smotrych-cookie-primary{background:#fff;color:#111827}@media(max-width:720px){.smotrych-cookie-card{align-items:flex-start;flex-direction:column}.smotrych-cookie-actions{width:100%;flex-direction:column}.smotrych-cookie-actions button{width:100%}}
+</style>
+<script>
+    (function () {
+        var key = 'smotrych_cookie_consent_v1';
+        var legacyKey = 'smotrych_cookie_consent';
+        var banner = null;
+
+        function readConsent() {
+            try { return localStorage.getItem(key) || localStorage.getItem(legacyKey) || ''; } catch (error) { return ''; }
+        }
+
+        function writeConsent(value) {
+            try { localStorage.setItem(key, value); } catch (error) {}
+            document.cookie = key + '=' + encodeURIComponent(value) + '; Max-Age=31536000; path=/; SameSite=Lax';
+        }
+
+        function updateConsent(granted) {
+            if (typeof window.gtag === 'function') {
+                window.gtag('consent', 'update', {
+                    ad_storage: granted ? 'granted' : 'denied',
+                    ad_user_data: granted ? 'granted' : 'denied',
+                    ad_personalization: granted ? 'granted' : 'denied',
+                    analytics_storage: granted ? 'granted' : 'denied'
+                });
+            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: granted ? 'cookie_consent_granted' : 'cookie_consent_essential',
+                analytics_consent: granted ? 'granted' : 'denied'
+            });
+        }
+
+        function hideBanner() {
+            if (banner) banner.hidden = true;
+        }
+
+        function initCookieBanner() {
+            banner = document.querySelector('[data-cookie-banner]');
+            if (!banner) return;
+            var stored = readConsent();
+            var hasChoice = stored === 'analytics' || stored === 'essential' || stored === 'granted' || stored === 'denied' || stored === 'true' || stored === '1';
+            if (!hasChoice) banner.hidden = false;
+
+            var analyticsButton = banner.querySelector('[data-cookie-analytics]');
+            var essentialButton = banner.querySelector('[data-cookie-essential]');
+            if (analyticsButton) {
+                analyticsButton.addEventListener('click', function () {
+                    writeConsent('analytics');
+                    updateConsent(true);
+                    hideBanner();
+                    window.setTimeout(function () { window.location.reload(); }, 120);
+                });
+            }
+            if (essentialButton) {
+                essentialButton.addEventListener('click', function () {
+                    writeConsent('essential');
+                    updateConsent(false);
+                    hideBanner();
+                });
+            }
+        }
+
+        function pushEvent(payload) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(payload);
+        }
+
+        function initTrackingEvents() {
+            document.addEventListener('submit', function (event) {
+                var form = event.target;
+                if (!form || !form.matches || !form.matches('form')) return;
+                var action = form.getAttribute('action') || '';
+                var isLead = action.indexOf('/lead') !== -1 || form.classList.contains('contact-form') || form.classList.contains('subscribe-form') || form.classList.contains('home-newsletter-form');
+                if (!isLead) return;
+                pushEvent({
+                    event: 'lead_form_submit',
+                    form_action: action || window.location.pathname,
+                    form_id: form.getAttribute('id') || form.className || 'form'
+                });
+                pushEvent({
+                    event: 'generate_lead',
+                    lead_source: form.querySelector('[name="source"]') ? form.querySelector('[name="source"]').value : window.location.pathname
+                });
+            }, true);
+
+            document.addEventListener('click', function (event) {
+                var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+                if (!link) return;
+                var href = link.getAttribute('href') || '';
+                if (href.indexOf('mailto:') === 0) {
+                    pushEvent({ event: 'contact_click', contact_method: 'email', link_url: href });
+                } else if (href.indexOf('tel:') === 0) {
+                    pushEvent({ event: 'contact_click', contact_method: 'phone', link_url: href });
+                } else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
+                    pushEvent({ event: 'contact_click', contact_method: 'whatsapp', link_url: href });
+                } else if (href.indexOf('/kontakt') !== -1 || href === '#kontakt') {
+                    pushEvent({ event: 'contact_cta_click', link_url: href });
+                }
+            }, true);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initCookieBanner();
+            initTrackingEvents();
+        });
+    }());
+</script>
 
 <script src="{{ url_for('static', filename='js/main.js', v='20260524_home_desktop_01') }}"></script>
 </body>
