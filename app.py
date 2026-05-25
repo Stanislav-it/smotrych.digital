@@ -6,6 +6,7 @@ import smtplib
 from datetime import datetime
 from email.message import EmailMessage
 from typing import Optional
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from flask import (
     Flask, abort, flash, g, redirect, render_template, request, session, url_for
@@ -223,6 +224,22 @@ PAGES = {
 }
 
 
+def redirect_with_lead_success(target_url: str, lead_id: int, source: str):
+    """Append a short-lived success marker so client-side GTM can fire the confirmed lead event."""
+    try:
+        target_url = target_url or url_for("page", slug="kontakt")
+        split = urlsplit(target_url)
+        params = dict(parse_qsl(split.query, keep_blank_values=True))
+        params.update({
+            "lead": "success",
+            "lead_id": str(lead_id),
+            "lead_source": (source or "lead_form")[:80],
+        })
+        return urlunsplit((split.scheme, split.netloc, split.path, urlencode(params), split.fragment))
+    except Exception:
+        return url_for("page", slug="kontakt", lead="success", lead_id=lead_id, lead_source=(source or "lead_form")[:80])
+
+
 # --- Contact form / lead capture logic -------------------------------------------------
 def get_db():
     db = getattr(g, "_db", None)
@@ -437,7 +454,7 @@ def lead():
     )
 
     flash("Dziękujemy. Skontaktujemy się wkrótce.", "success")
-    return redirect(request.referrer or url_for("page", slug="kontakt"))
+    return redirect(redirect_with_lead_success(request.referrer or url_for("page", slug="kontakt"), lead_id, source))
 
 
 @app.route("/admin/login", methods=["GET", "POST"])

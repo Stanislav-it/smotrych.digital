@@ -232,6 +232,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var key = 'smotrych_cookie_consent_v1';
         var legacyKey = 'smotrych_cookie_consent';
         var banner = null;
+        var trackedScrollDepths = {};
+        var formStarted = {};
 
         function readConsent() {
             try { return localStorage.getItem(key) || localStorage.getItem(legacyKey) || ''; } catch (error) { return ''; }
@@ -251,9 +253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     analytics_storage: granted ? 'granted' : 'denied'
                 });
             }
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: granted ? 'cookie_consent_granted' : 'cookie_consent_essential',
+            trackEvent(granted ? 'cookie_consent_granted' : 'cookie_consent_essential', {
                 analytics_consent: granted ? 'granted' : 'denied'
             });
         }
@@ -288,48 +288,206 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
-        function pushEvent(payload) {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push(payload);
+        function getPageParams() {
+            return {
+                page_location: window.location.href,
+                page_path: window.location.pathname,
+                page_title: document.title
+            };
         }
 
-        function initTrackingEvents() {
-            document.addEventListener('submit', function (event) {
-                var form = event.target;
-                if (!form || !form.matches || !form.matches('form')) return;
-                var action = form.getAttribute('action') || '';
-                var isLead = action.indexOf('/lead') !== -1 || form.classList.contains('contact-form') || form.classList.contains('subscribe-form') || form.classList.contains('home-newsletter-form');
-                if (!isLead) return;
-                pushEvent({
-                    event: 'lead_form_submit',
-                    form_action: action || window.location.pathname,
-                    form_id: form.getAttribute('id') || form.className || 'form'
+        function cleanString(value, fallback) {
+            value = (value || '').toString().replace(/\s+/g, ' ').trim();
+            return value || fallback || '';
+        }
+
+        function trackEvent(eventName, params) {
+            var payload = Object.assign({
+                event: eventName,
+                event_source: 'smotrych.digital',
+                event_timestamp: new Date().toISOString()
+            }, getPageParams(), params || {});
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(payload);
+            return payload;
+        }
+
+        window.smotrychTrack = trackEvent;
+
+        function formName(form) {
+            if (!form) return 'form';
+            var source = form.querySelector('[name="source"]');
+            if (source && source.value) return source.value;
+            if (form.classList.contains('contact-form')) return 'contact_form';
+            if (form.classList.contains('subscribe-form')) return 'newsletter_form';
+            if (form.id) return form.id;
+            return cleanString(form.className, 'form');
+        }
+
+        function isLeadForm(form) {
+            if (!form || !form.matches) return false;
+            var action = form.getAttribute('action') || '';
+            return action.indexOf('/lead') !== -1 || form.classList.contains('contact-form') || form.classList.contains('subscribe-form') || form.classList.contains('home-newsletter-form');
+        }
+
+        function initLeadSuccessFromUrl() {
+            try {
+                var params = new URLSearchParams(window.location.search || '');
+                if (params.get('lead') !== 'success') return;
+                var leadId = params.get('lead_id') || '';
+                var source = params.get('lead_source') || 'lead_form';
+                var dedupeKey = 'smotrych_lead_success_' + (leadId || window.location.href);
+                try {
+                    if (sessionStorage.getItem(dedupeKey) === '1') return;
+                    sessionStorage.setItem(dedupeKey, '1');
+                } catch (error) {}
+                trackEvent('lead_form_success', {
+                    form_name: source,
+                    lead_id: leadId,
+                    event_id: leadId ? 'lead-' + leadId : 'lead-' + Date.now()
                 });
-                pushEvent({
-                    event: 'generate_lead',
-                    lead_source: form.querySelector('[name="source"]') ? form.querySelector('[name="source"]').value : window.location.pathname
+                trackEvent('generate_lead', {
+                    form_name: source,
+                    lead_id: leadId,
+                    event_id: leadId ? 'lead-' + leadId : 'lead-' + Date.now(),
+                    value: 1,
+                    currency: 'PLN'
+                });
+                params.delete('lead');
+                params.delete('lead_id');
+                params.delete('lead_source');
+                var cleanUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+                window.history.replaceState({}, document.title, cleanUrl);
+            } catch (error) {}
+        }
+
+        function initFormTracking() {
+            document.addEventListener('focusin', function (event) {
+                var form = event.target && event.target.closest ? event.target.closest('form') : null;
+                if (!isLeadForm(form)) return;
+                var name = formName(form);
+                if (formStarted[name]) return;
+                formStarted[name] = true;
+                trackEvent('lead_form_start', {
+                    form_name: name,
+                    form_id: form.getAttribute('id') || '',
+                    form_action: form.getAttribute('action') || window.location.pathname
                 });
             }, true);
 
-            document.addEventListener('click', function (event) {
-                var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
-                if (!link) return;
-                var href = link.getAttribute('href') || '';
-                if (href.indexOf('mailto:') === 0) {
-                    pushEvent({ event: 'contact_click', contact_method: 'email', link_url: href });
-                } else if (href.indexOf('tel:') === 0) {
-                    pushEvent({ event: 'contact_click', contact_method: 'phone', link_url: href });
-                } else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
-                    pushEvent({ event: 'contact_click', contact_method: 'whatsapp', link_url: href });
-                } else if (href.indexOf('/kontakt') !== -1 || href === '#kontakt') {
-                    pushEvent({ event: 'contact_cta_click', link_url: href });
+            document.addEventListener('invalid', function (event) {
+                var form = event.target && event.target.closest ? event.target.closest('form') : null;
+                if (!isLeadForm(form)) return;
+                trackEvent('lead_form_error', {
+                    form_name: formName(form),
+                    field_name: event.target.getAttribute('name') || event.target.getAttribute('type') || 'field'
+                });
+            }, true);
+
+            document.addEventListener('submit', function (event) {
+                var form = event.target;
+                if (!isLeadForm(form)) return;
+                var name = formName(form);
+                var payload = {
+                    form_name: name,
+                    form_id: form.getAttribute('id') || '',
+                    form_action: form.getAttribute('action') || window.location.pathname
+                };
+                trackEvent('lead_form_submit_attempt', payload);
+                if (form.classList.contains('subscribe-form')) {
+                    trackEvent('newsletter_signup_attempt', payload);
                 }
             }, true);
         }
 
+        function classifyContactLink(href) {
+            if (href.indexOf('mailto:') === 0) return 'email';
+            if (href.indexOf('tel:') === 0) return 'phone';
+            if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) return 'whatsapp';
+            return '';
+        }
+
+        function initClickTracking() {
+            document.addEventListener('click', function (event) {
+                var link = event.target && event.target.closest ? event.target.closest('a[href], button') : null;
+                if (!link) return;
+                var href = link.getAttribute('href') || '';
+                var label = cleanString(link.innerText || link.getAttribute('aria-label') || link.getAttribute('title') || href, 'click');
+                var contactMethod = classifyContactLink(href);
+                if (contactMethod) {
+                    trackEvent('contact_click', {
+                        contact_method: contactMethod,
+                        link_text: label,
+                        link_url: href
+                    });
+                    trackEvent(contactMethod + '_click', {
+                        link_text: label,
+                        link_url: href
+                    });
+                    return;
+                }
+                if (href.indexOf('/kontakt') !== -1 || href === '#kontakt') {
+                    trackEvent('contact_cta_click', {
+                        link_text: label,
+                        link_url: href
+                    });
+                    return;
+                }
+                if (href.indexOf('/strony-www') !== -1 || href.indexOf('/sklepy-online') !== -1 || href.indexOf('/marketing') !== -1 || href.indexOf('/uslugi') !== -1) {
+                    trackEvent('select_service', {
+                        service_slug: href.replace(/^.*\//, '').replace('#', '') || href,
+                        link_text: label,
+                        link_url: href
+                    });
+                }
+                try {
+                    if (href && href.charAt(0) !== '#' && link.hostname && link.hostname !== window.location.hostname) {
+                        trackEvent('outbound_click', {
+                            link_domain: link.hostname,
+                            link_text: label,
+                            link_url: link.href
+                        });
+                    }
+                } catch (error) {}
+            }, true);
+        }
+
+        function initScrollTracking() {
+            var thresholds = [25, 50, 75, 90];
+            var ticking = false;
+            function calculateDepth() {
+                ticking = false;
+                var doc = document.documentElement;
+                var body = document.body;
+                var scrollTop = window.pageYOffset || doc.scrollTop || body.scrollTop || 0;
+                var scrollHeight = Math.max(body.scrollHeight, doc.scrollHeight, body.offsetHeight, doc.offsetHeight, body.clientHeight, doc.clientHeight);
+                var viewport = window.innerHeight || doc.clientHeight || 0;
+                var maxScroll = Math.max(scrollHeight - viewport, 1);
+                var percent = Math.round((scrollTop / maxScroll) * 100);
+                thresholds.forEach(function (threshold) {
+                    if (percent >= threshold && !trackedScrollDepths[threshold]) {
+                        trackedScrollDepths[threshold] = true;
+                        trackEvent('scroll_depth', {
+                            percent_scrolled: threshold
+                        });
+                    }
+                });
+            }
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(calculateDepth);
+                }
+            }, { passive: true });
+            window.setTimeout(calculateDepth, 1200);
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             initCookieBanner();
-            initTrackingEvents();
+            initLeadSuccessFromUrl();
+            initFormTracking();
+            initClickTracking();
+            initScrollTracking();
         });
     }());
 </script>

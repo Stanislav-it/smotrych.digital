@@ -1,6 +1,6 @@
-# GTM / GA4 setup
+# GTM / GA4 / Google Ads setup
 
-The project is prepared for Google Tag Manager and GA4 through environment variables.
+The project is prepared for Google Tag Manager, GA4 and Google Ads conversion tracking through environment variables and dataLayer events.
 
 ## Render environment variables
 
@@ -8,7 +8,7 @@ Required:
 
 ```env
 SITE_URL=https://smotrych.digital
-GTM_ID=GTM-XXXXXXX
+GTM_ID=GTM-MTMVQJVQ
 ```
 
 Optional direct GA4 fallback. Do not use this if GA4 is configured inside GTM:
@@ -40,21 +40,77 @@ https://smotrych.digital/?cookies=reset
 
 ## DataLayer events
 
-The site pushes these events for Google Ads / GA4 configuration in GTM:
+The site pushes these events for GA4 and Google Ads configuration in GTM:
 
-- `cookie_consent_granted`
-- `cookie_consent_essential`
-- `lead_form_submit`
-- `generate_lead`
-- `contact_click`
-- `contact_cta_click`
+Primary conversion:
+
+```text
+generate_lead
+```
+
+Lead funnel:
+
+```text
+lead_form_start
+lead_form_submit_attempt
+lead_form_error
+lead_form_success
+generate_lead
+newsletter_signup_attempt
+```
+
+Contact micro-conversions:
+
+```text
+contact_cta_click
+contact_click
+email_click
+phone_click
+whatsapp_click
+```
+
+Engagement and navigation:
+
+```text
+select_service
+outbound_click
+scroll_depth
+```
+
+Consent:
+
+```text
+cookie_consent_granted
+cookie_consent_essential
+```
+
+## Google Ads recommended configuration
+
+In GTM add:
+
+1. **Conversion Linker** tag on `All Pages`.
+2. **Google Ads Conversion Tracking** tag for the primary lead conversion.
+3. Trigger for the primary conversion:
+
+```text
+Custom Event = generate_lead
+```
+
+Secondary conversion triggers can be created for:
+
+```text
+phone_click
+email_click
+whatsapp_click
+contact_cta_click
+```
 
 ## Checks after deployment
 
 Open page source and search for:
 
 ```text
-GTM-XXXXXXX
+GTM-MTMVQJVQ
 ```
 
 In Chrome DevTools → Network, filter by:
@@ -67,4 +123,10 @@ Then filter by:
 
 ```text
 collect
+```
+
+After submitting a form, GA4 Realtime / DebugView should show:
+
+```text
+generate_lead
 ```

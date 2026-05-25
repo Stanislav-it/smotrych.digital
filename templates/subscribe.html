@@ -8,7 +8,12 @@
             <p class="subscribe-lead">Zapisz się, aby otrzymywać krótkie aktualizacje o stronach internetowych, sklepach online, SEO, kampaniach Google Ads i nowych realizacjach Smotrych Digital.</p>
         </div>
 
-        <form class="subscribe-form reveal" action="#" method="post">
+        <form class="subscribe-form reveal" action="{{ url_for('lead') }}" method="post">
+            <input type="hidden" name="source" value="Newsletter — Smotrych Digital">
+            <label class="form-hp" aria-hidden="true">
+                <span>Website</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </label>
             <label>
                 <span class="sr-only">Adres e-mail</span>
                 <input type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email">
