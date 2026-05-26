@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} — Smotrych Digital{% endblock %}
+{% block content %}
+<section class="policy-hero section">
+    <div class="policy-shell reveal">
+        <p class="policy-kicker">{{ page.kicker }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="policy-lead">{{ page.lead }}</p>
+        <p class="policy-updated">Ostatnia aktualizacja: {{ page.updated }}</p>
+    </div>
+</section>
+
+<section class="policy-content-section">
+    <div class="policy-layout reveal">
+        <aside class="policy-toc" aria-label="Spis treści">
+            <strong>Na tej stronie</strong>
+            <nav>
+                {% for section in page.sections %}
+                    <a href="#{{ section.id }}">{{ section.title }}</a>
+                {% endfor %}
+            </nav>
+        </aside>
+
+        <article class="policy-card">
+            {% for section in page.sections %}
+                <section class="policy-section" id="{{ section.id }}">
+                    <span class="policy-section-number">{{ '%02d' % loop.index }}</span>
+                    <h2>{{ section.title }}</h2>
+                    {% for paragraph in section.body %}
+                        <p>{{ paragraph|safe }}</p>
+                    {% endfor %}
+                </section>
+            {% endfor %}
+        </article>
+    </div>
+</section>
+{% endblock %}

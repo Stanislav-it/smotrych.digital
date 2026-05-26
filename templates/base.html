@@ -119,11 +119,11 @@
             }, true);
         }());
     </script>
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/smotrych_icon.svg', v='20260524_home_desktop_01') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/smotrych_icon.svg', v='20260526_policies_01') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css', v='20260524_home_desktop_01') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css', v='20260526_policies_01') }}">
 </head>
 <body class="page-{{ current|default('home') }}">
 {% if gtm_id %}
@@ -198,17 +198,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="footer">
     <div class="footer-brand">
-        <img class="brand-logo" src="{{ url_for('static', filename='img/smotrych_icon.svg', v='20260524_home_desktop_01') }}" alt="" aria-hidden="true">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/smotrych_icon.svg', v='20260526_policies_01') }}" alt="" aria-hidden="true">
         <span class="brand-text">SMOTRYCH <strong>DIGITAL</strong></span>
     </div>
     <p>Cyfrowe rozwiązania, które napędzają prawdziwy rozwój.</p>
-    <nav aria-label="Stopka">
+    <nav class="footer-nav-main" aria-label="Stopka">
         <a href="{{ url_for('page', slug='uslugi') }}">Usługi</a>
+        <a href="{{ url_for('page', slug='portfolio') }}">Portfolio</a>
         <a href="{{ url_for('page', slug='blog') }}">Blog</a>
         <a href="{{ url_for('page', slug='subskrypcja') }}">Subskrypcja</a>
         <a href="{{ url_for('page', slug='kontakt') }}">Kontakt</a>
     </nav>
-    <small>© 2026 Smotrych Digital. Polityka prywatności.</small>
+    <nav class="footer-policies" aria-label="Polityki i dokumenty">
+        <a href="{{ url_for('page', slug='polityka-prywatnosci') }}">Polityka prywatności</a>
+        <a href="{{ url_for('page', slug='polityka-cookies') }}">Polityka cookies</a>
+        <a href="{{ url_for('page', slug='regulamin') }}">Regulamin</a>
+        <a href="{{ url_for('page', slug='rodo') }}">RODO</a>
+        <a href="{{ url_for('page', slug='reklamacje') }}">Reklamacje</a>
+    </nav>
+    <small>© 2026 Smotrych Digital. Wszystkie prawa zastrzeżone.</small>
 </footer>
 
 
@@ -216,7 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="smotrych-cookie-card" role="dialog" aria-live="polite" aria-label="Zgoda na cookies">
         <div>
             <strong>Cookies i analityka</strong>
-            <p>Używamy niezbędnych plików cookies oraz, za zgodą, analityki Google do mierzenia skuteczności strony i kampanii.</p>
+            <p>Używamy niezbędnych plików cookies oraz, za zgodą, analityki Google do mierzenia skuteczności strony i kampanii. Szczegóły: <a href="{{ url_for('page', slug='polityka-cookies') }}">polityka cookies</a>.</p>
         </div>
         <div class="smotrych-cookie-actions">
             <button type="button" class="smotrych-cookie-secondary" data-cookie-essential>Tylko niezbędne</button>
@@ -492,6 +500,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }());
 </script>
 
-<script src="{{ url_for('static', filename='js/main.js', v='20260524_home_desktop_01') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js', v='20260526_policies_01') }}"></script>
 </body>
 </html>

@@ -215,11 +215,269 @@ PAGES = {
         "lead": "Napisz do nas bezpośrednio lub zostaw kilka informacji o projekcie — wrócimy z konkretną odpowiedzią.",
         "template": "contact.html",
     },
+    "portfolio": {
+        "kicker": "Portfolio",
+        "title": "Wybrane realizacje",
+        "lead": "Zobacz przykładowe projekty stron, sklepów i systemów marketingowych przygotowanych dla klientów.",
+        "template": "portfolio.html",
+    },
     "subskrypcja": {
         "kicker": "Subskrypcja",
         "title": "Dołącz do inner circle",
         "lead": "Zapisz się po konkretne wskazówki, case studies i aktualizacje o stronach, sklepach oraz kampaniach.",
         "template": "subscribe.html",
+    },
+}
+
+
+POLICY_PAGES = {
+    "polityka-prywatnosci": {
+        "kicker": "Polityki",
+        "title": "Polityka prywatności",
+        "lead": "Informacje o tym, jakie dane zbieramy, w jakim celu je wykorzystujemy i jakie prawa przysługują użytkownikom serwisu Smotrych Digital.",
+        "updated": "26 maja 2026",
+        "sections": [
+            {
+                "id": "administrator",
+                "title": "Administrator danych",
+                "body": [
+                    "Administratorem danych osobowych przetwarzanych w ramach serwisu smotrych.digital jest Smotrych Digital.",
+                    "Kontakt w sprawach prywatności: <a href=\"mailto:kontakt@smotrych.com\">kontakt@smotrych.com</a>. Kontakt telefoniczny: <a href=\"tel:+48723698910\">+48 723 698 910</a>."
+                ],
+            },
+            {
+                "id": "zakres-danych",
+                "title": "Jakie dane możemy przetwarzać",
+                "body": [
+                    "Przetwarzamy dane przekazane dobrowolnie przez użytkownika, w szczególności imię i nazwisko, adres e-mail, numer telefonu, nazwę firmy oraz treść wiadomości wysłanej przez formularz kontaktowy.",
+                    "Serwis może zapisywać podstawowe dane techniczne, takie jak adres IP, informacje o urządzeniu, przeglądarce, czasie wizyty, źródle wejścia oraz działaniach wykonanych na stronie. Dane te służą bezpieczeństwu, analityce i optymalizacji strony."
+                ],
+            },
+            {
+                "id": "cele",
+                "title": "Cele przetwarzania danych",
+                "body": [
+                    "Dane przetwarzamy w celu obsługi zapytań, przygotowania odpowiedzi handlowej, kontaktu zwrotnego, realizacji ustaleń z klientem, prowadzenia komunikacji, zapewnienia bezpieczeństwa serwisu oraz mierzenia skuteczności działań marketingowych.",
+                    "Jeżeli użytkownik wyrazi zgodę na cookies analityczne lub remarketingowe, dane o aktywności na stronie mogą być wykorzystywane do analizy ruchu, tworzenia statystyk oraz optymalizacji kampanii reklamowych."
+                ],
+            },
+            {
+                "id": "podstawy",
+                "title": "Podstawy przetwarzania",
+                "body": [
+                    "Dane z formularza kontaktowego przetwarzamy, aby odpowiedzieć na zapytanie i podjąć działania przed zawarciem umowy lub w ramach prawnie uzasadnionego interesu administratora polegającego na obsłudze komunikacji z potencjalnymi klientami.",
+                    "Dane wykorzystywane do analityki, remarketingu i personalizacji reklam przetwarzamy po uzyskaniu odpowiedniej zgody użytkownika. Zgodę można wycofać w każdej chwili, między innymi przez zmianę ustawień cookies w przeglądarce lub reset zgody na stronie."
+                ],
+            },
+            {
+                "id": "odbiorcy",
+                "title": "Odbiorcy danych i narzędzia zewnętrzne",
+                "body": [
+                    "Dane mogą być przetwarzane przez dostawców usług technicznych, hostingu, poczty e-mail, analityki internetowej, narzędzi reklamowych oraz systemów wspierających obsługę zapytań.",
+                    "W serwisie mogą być używane narzędzia Google, w tym Google Analytics, Google Ads, Google Tag Manager lub podobne rozwiązania, jeżeli są aktywowane w konfiguracji strony i użytkownik udzielił wymaganych zgód."
+                ],
+            },
+            {
+                "id": "okres",
+                "title": "Okres przechowywania danych",
+                "body": [
+                    "Dane z formularza przechowujemy przez okres niezbędny do obsługi zapytania i dalszej komunikacji, a następnie przez czas wymagany do ochrony ewentualnych roszczeń lub spełnienia obowiązków prawnych.",
+                    "Dane analityczne i reklamowe przechowywane są zgodnie z ustawieniami używanych narzędzi oraz do czasu wycofania zgody lub usunięcia danych zgodnie z procedurami dostawców tych narzędzi."
+                ],
+            },
+            {
+                "id": "prawa",
+                "title": "Prawa użytkownika",
+                "body": [
+                    "Użytkownik ma prawo żądać dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia danych, wniesienia sprzeciwu oraz wycofania zgody, jeżeli przetwarzanie odbywa się na podstawie zgody.",
+                    "W sprawach dotyczących danych można napisać na adres <a href=\"mailto:kontakt@smotrych.com\">kontakt@smotrych.com</a>. Użytkownik ma również prawo złożyć skargę do właściwego organu nadzorczego."
+                ],
+            },
+            {
+                "id": "bezpieczenstwo",
+                "title": "Bezpieczeństwo danych",
+                "body": [
+                    "Stosujemy środki organizacyjne i techniczne mające ograniczać ryzyko nieuprawnionego dostępu do danych, ich utraty, zmiany lub ujawnienia.",
+                    "Użytkownik powinien korzystać z aktualnej przeglądarki, zabezpieczonego urządzenia oraz unikać przesyłania przez formularz danych nadmiarowych lub szczególnie wrażliwych, jeżeli nie jest to konieczne do obsługi zapytania."
+                ],
+            },
+        ],
+    },
+    "polityka-cookies": {
+        "kicker": "Polityki",
+        "title": "Polityka cookies",
+        "lead": "Wyjaśniamy, czym są pliki cookies, jakie rodzaje cookies mogą działać w serwisie i jak użytkownik może zarządzać zgodami.",
+        "updated": "26 maja 2026",
+        "sections": [
+            {
+                "id": "czym-sa-cookies",
+                "title": "Czym są cookies",
+                "body": [
+                    "Cookies to niewielkie pliki zapisywane na urządzeniu użytkownika przez przeglądarkę internetową. Mogą wspierać prawidłowe działanie strony, zapamiętywanie ustawień, analitykę oraz działania reklamowe.",
+                    "Serwis wykorzystuje mechanizm zgody, który pozwala wybrać wyłącznie niezbędne cookies lub zaakceptować także cookies analityczne."
+                ],
+            },
+            {
+                "id": "rodzaje",
+                "title": "Rodzaje cookies w serwisie",
+                "body": [
+                    "Cookies niezbędne są potrzebne do prawidłowego działania strony, obsługi bezpieczeństwa, formularzy i zapamiętania decyzji użytkownika dotyczącej zgód.",
+                    "Cookies analityczne i marketingowe mogą być używane do pomiaru ruchu, oceny skuteczności kampanii, remarketingu oraz lepszego dopasowania komunikacji reklamowej — tylko wtedy, gdy użytkownik wyrazi na to zgodę."
+                ],
+            },
+            {
+                "id": "narzedzia",
+                "title": "Narzędzia analityczne i reklamowe",
+                "body": [
+                    "W zależności od konfiguracji serwisu mogą być używane narzędzia takie jak Google Analytics, Google Ads, Google Tag Manager oraz podobne rozwiązania służące do analityki i optymalizacji kampanii.",
+                    "Domyślnie zgody reklamowe i analityczne są ustawione jako odrzucone. Dopiero wybór zgody na analitykę może aktywować odpowiednie ustawienia w narzędziach pomiarowych."
+                ],
+            },
+            {
+                "id": "zarzadzanie",
+                "title": "Zarządzanie cookies",
+                "body": [
+                    "Użytkownik może zarządzać cookies z poziomu banera zgody, ustawień przeglądarki lub narzędzi prywatności dostępnych w przeglądarce.",
+                    "Aby ponownie wyświetlić baner zgody na tej stronie, można wejść na adres: <a href=\"/?cookies=reset\">smotrych.digital/?cookies=reset</a>."
+                ],
+            },
+            {
+                "id": "konsekwencje",
+                "title": "Ograniczenie cookies",
+                "body": [
+                    "Wyłączenie cookies niezbędnych może utrudnić korzystanie z niektórych funkcji strony. Brak zgody na cookies analityczne nie blokuje dostępu do treści serwisu.",
+                    "Zmiana ustawień cookies w przeglądarce może działać niezależnie od wyborów dokonanych w banerze zgody."
+                ],
+            },
+        ],
+    },
+    "regulamin": {
+        "kicker": "Polityki",
+        "title": "Regulamin serwisu",
+        "lead": "Zasady korzystania ze strony smotrych.digital, formularzy kontaktowych oraz treści publikowanych w serwisie.",
+        "updated": "26 maja 2026",
+        "sections": [
+            {
+                "id": "postanowienia-ogolne",
+                "title": "Postanowienia ogólne",
+                "body": [
+                    "Serwis smotrych.digital ma charakter informacyjny i prezentuje usługi związane z projektowaniem stron internetowych, sklepów online, Google Ads, SEO, analityką i marketingiem internetowym.",
+                    "Korzystając z serwisu, użytkownik zobowiązuje się do używania go zgodnie z prawem, dobrymi obyczajami i bez naruszania praw innych osób."
+                ],
+            },
+            {
+                "id": "formularze",
+                "title": "Formularze i kontakt",
+                "body": [
+                    "Wysłanie formularza kontaktowego oznacza przekazanie danych w celu otrzymania odpowiedzi i ewentualnego omówienia współpracy.",
+                    "Samo wysłanie formularza nie oznacza zawarcia umowy. Zakres, termin, wynagrodzenie i warunki realizacji usług są ustalane indywidualnie."
+                ],
+            },
+            {
+                "id": "tresci",
+                "title": "Treści i prawa autorskie",
+                "body": [
+                    "Materiały, teksty, grafiki, układ strony oraz elementy identyfikacji wizualnej dostępne w serwisie są chronione i nie mogą być kopiowane ani wykorzystywane bez zgody właściciela praw, chyba że przepisy prawa pozwalają na takie użycie.",
+                    "Użytkownik nie może dostarczać przez formularze treści bezprawnych, naruszających prawa osób trzecich, zawierających złośliwe oprogramowanie lub mających charakter spamu."
+                ],
+            },
+            {
+                "id": "odpowiedzialnosc",
+                "title": "Odpowiedzialność",
+                "body": [
+                    "Dokładamy starań, aby informacje na stronie były aktualne i rzetelne, jednak publikowane treści nie stanowią indywidualnej porady prawnej, podatkowej ani biznesowej.",
+                    "Nie gwarantujemy nieprzerwanego dostępu do serwisu. Strona może być czasowo niedostępna z przyczyn technicznych, serwisowych lub niezależnych od administratora."
+                ],
+            },
+            {
+                "id": "zmiany",
+                "title": "Zmiany regulaminu",
+                "body": [
+                    "Regulamin może być aktualizowany, w szczególności w przypadku zmiany funkcji serwisu, sposobu świadczenia usług, narzędzi technicznych lub wymagań prawnych.",
+                    "Aktualna wersja regulaminu jest zawsze dostępna na tej stronie."
+                ],
+            },
+        ],
+    },
+    "rodo": {
+        "kicker": "Polityki",
+        "title": "Informacja RODO",
+        "lead": "Skrócona informacja o prawach związanych z przetwarzaniem danych osobowych i sposobie kontaktu w sprawach danych.",
+        "updated": "26 maja 2026",
+        "sections": [
+            {
+                "id": "kto-przetwarza",
+                "title": "Kto przetwarza dane",
+                "body": [
+                    "Administratorem danych osobowych jest Smotrych Digital. Kontakt w sprawach danych: <a href=\"mailto:kontakt@smotrych.com\">kontakt@smotrych.com</a>.",
+                    "Dane są przetwarzane przede wszystkim w związku z obsługą zapytań, prowadzeniem komunikacji, przygotowaniem oferty, realizacją usług oraz zabezpieczeniem serwisu."
+                ],
+            },
+            {
+                "id": "prawa-osoby",
+                "title": "Prawa osoby, której dane dotyczą",
+                "body": [
+                    "Osoba, której dane dotyczą, może żądać dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia danych lub wnieść sprzeciw wobec przetwarzania.",
+                    "Jeżeli dane są przetwarzane na podstawie zgody, użytkownik może ją wycofać w dowolnym momencie. Wycofanie zgody nie wpływa na zgodność z prawem wcześniejszego przetwarzania."
+                ],
+            },
+            {
+                "id": "jak-zlozyc-wniosek",
+                "title": "Jak złożyć wniosek",
+                "body": [
+                    "Wniosek dotyczący danych można wysłać na adres <a href=\"mailto:kontakt@smotrych.com\">kontakt@smotrych.com</a>. W treści warto wskazać, jakiego prawa dotyczy wniosek i jakich danych ma dotyczyć.",
+                    "W celu ochrony danych możemy poprosić o dodatkowe informacje pozwalające potwierdzić tożsamość osoby składającej wniosek."
+                ],
+            },
+            {
+                "id": "skarga",
+                "title": "Skarga do organu nadzorczego",
+                "body": [
+                    "Jeżeli użytkownik uważa, że dane są przetwarzane nieprawidłowo, może złożyć skargę do właściwego organu nadzorczego zajmującego się ochroną danych osobowych.",
+                    "Przed złożeniem skargi zachęcamy do kontaktu, abyśmy mogli wyjaśnić sprawę i odpowiedzieć na zgłoszenie."
+                ],
+            },
+        ],
+    },
+    "reklamacje": {
+        "kicker": "Polityki",
+        "title": "Reklamacje i zgłoszenia",
+        "lead": "Zasady zgłaszania uwag dotyczących działania strony, formularzy kontaktowych oraz realizowanych usług.",
+        "updated": "26 maja 2026",
+        "sections": [
+            {
+                "id": "co-mozna-zglosic",
+                "title": "Zakres zgłoszeń",
+                "body": [
+                    "Użytkownik może zgłosić problemy techniczne ze stroną, błędy formularzy, zastrzeżenia dotyczące komunikacji lub uwagi związane z realizowaną usługą.",
+                    "Zgłoszenie można wysłać na adres <a href=\"mailto:kontakt@smotrych.com\">kontakt@smotrych.com</a>."
+                ],
+            },
+            {
+                "id": "co-podac",
+                "title": "Co powinno zawierać zgłoszenie",
+                "body": [
+                    "Zgłoszenie powinno zawierać dane kontaktowe, opis sprawy, datę wystąpienia problemu oraz — jeżeli to możliwe — zrzut ekranu lub link do miejsca, którego dotyczy zgłoszenie.",
+                    "W przypadku usług realizowanych na podstawie indywidualnych ustaleń prosimy o podanie nazwy projektu lub zakresu współpracy."
+                ],
+            },
+            {
+                "id": "termin",
+                "title": "Odpowiedź na zgłoszenie",
+                "body": [
+                    "Na zgłoszenia odpowiadamy w możliwie najkrótszym terminie, zwykle w dni robocze. W sprawach bardziej złożonych odpowiedź może wymagać dodatkowej analizy technicznej lub kontaktu z dostawcą narzędzia zewnętrznego.",
+                    "Jeżeli zgłoszenie wymaga uzupełnienia informacji, skontaktujemy się z nadawcą na podany adres e-mail lub numer telefonu."
+                ],
+            },
+            {
+                "id": "uslugi-indywidualne",
+                "title": "Usługi indywidualne",
+                "body": [
+                    "W przypadku projektów stron, sklepów, kampanii i usług marketingowych zasady odbioru prac, poprawek, rozliczeń i ewentualnych reklamacji mogą być doprecyzowane w indywidualnej umowie lub ustaleniach mailowych.",
+                    "Ta strona opisuje ogólną procedurę kontaktu i zgłoszeń dla serwisu Smotrych Digital."
+                ],
+            },
+        ],
     },
 }
 
@@ -542,6 +800,18 @@ def index():
 def page(slug):
     page_data = PAGES.get(slug)
     if not page_data:
+        policy_data = POLICY_PAGES.get(slug)
+        if policy_data:
+            return render_template(
+                "policy.html",
+                page=policy_data,
+                services=SERVICES,
+                projects=PROJECTS,
+                process=PROCESS,
+                faq=FAQ,
+                home_cases=HOME_CASES,
+                current=slug,
+            )
         abort(404)
     return render_template(
         page_data["template"],
@@ -576,6 +846,7 @@ def sitemap_xml():
     site_url = app.config.get("SITE_URL", "https://smotrych.digital").rstrip("/")
     urls = [site_url + "/"]
     urls.extend(f"{site_url}/{slug}" for slug in PAGES.keys())
+    urls.extend(f"{site_url}/{slug}" for slug in POLICY_PAGES.keys())
     items = "".join(
         f"<url><loc>{escape(url)}</loc><changefreq>weekly</changefreq><priority>{'1.0' if url == site_url + '/' else '0.8'}</priority></url>"
         for url in urls

@@ -9426,3 +9426,193 @@ body.page-o-nas .about-capabilities-aside .websites-testimonial-quote {
         display: grid;
     }
 }
+
+/* Policy pages and footer policy links — v20260526_policies_01 */
+.footer-policies {
+    grid-column: 1 / -1;
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px 18px !important;
+    padding-top: 18px;
+    margin-top: 8px;
+    border-top: 1px solid rgba(255,250,240,.14);
+}
+.footer-policies a {
+    font-size: 11px !important;
+    letter-spacing: .10em !important;
+    color: rgba(255,250,240,.66) !important;
+}
+.footer-policies a:hover,
+.footer-nav-main a:hover {
+    color: var(--gold) !important;
+}
+.smotrych-cookie-card a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.policy-hero {
+    padding-top: calc(var(--header-height) + 86px);
+    padding-bottom: 56px;
+    background: radial-gradient(circle at 18% 10%, rgba(198,139,23,.18), transparent 34%), var(--paper);
+}
+.policy-shell {
+    width: min(1060px, calc(100% - 48px));
+    margin: 0 auto;
+}
+.policy-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0 0 22px;
+    color: var(--gold-dark);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+.policy-kicker::before {
+    content: "";
+    width: 44px;
+    height: 2px;
+    background: var(--gold);
+}
+.policy-shell h1 {
+    max-width: 940px;
+    margin-bottom: 22px;
+    font-size: clamp(42px, 6vw, 82px);
+}
+.policy-lead {
+    max-width: 780px;
+    color: var(--muted-ink);
+    font-size: clamp(17px, 2vw, 22px);
+    line-height: 1.7;
+}
+.policy-updated {
+    margin-top: 28px;
+    color: rgba(16,16,16,.56);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.policy-content-section {
+    padding: 38px 0 110px;
+    background: var(--paper);
+}
+.policy-layout {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+.policy-toc {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    padding: 24px;
+    border: 1px solid var(--line);
+    background: rgba(255,250,240,.56);
+    box-shadow: var(--shadow);
+}
+.policy-toc strong {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+.policy-toc nav {
+    display: grid;
+    gap: 10px;
+}
+.policy-toc a {
+    color: rgba(16,16,16,.68);
+    font-size: 13px;
+    line-height: 1.35;
+}
+.policy-toc a:hover { color: var(--gold-dark); }
+.policy-card {
+    padding: clamp(28px, 5vw, 56px);
+    border: 1px solid var(--line);
+    background: rgba(255,250,240,.70);
+    box-shadow: var(--shadow);
+}
+.policy-section {
+    position: relative;
+    padding: 0 0 34px;
+    margin-bottom: 34px;
+    border-bottom: 1px solid var(--line);
+}
+.policy-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+.policy-section-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--gold-dark);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .18em;
+}
+.policy-section h2 {
+    margin-bottom: 16px;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    text-transform: none;
+}
+.policy-section p {
+    color: var(--muted-ink);
+    font-size: 16px;
+    line-height: 1.78;
+    margin-bottom: 14px;
+}
+.policy-section p:last-child { margin-bottom: 0; }
+.policy-section a {
+    color: var(--gold-dark);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.contact-form-note a {
+    color: var(--gold-dark);
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+@media (max-width: 900px) {
+    .footer-policies {
+        border-top-color: rgba(16,16,16,.12) !important;
+    }
+    .footer-policies a {
+        color: rgba(16,16,16,.68) !important;
+    }
+    .policy-hero {
+        padding-top: calc(var(--header-height) + 54px);
+    }
+    .policy-layout {
+        grid-template-columns: 1fr;
+    }
+    .policy-toc {
+        position: static;
+    }
+}
+@media (max-width: 560px) {
+    .policy-shell,
+    .policy-layout {
+        width: min(100% - 32px, 1120px);
+    }
+    .policy-card,
+    .policy-toc {
+        padding: 22px;
+    }
+    .policy-content-section {
+        padding-bottom: 78px;
+    }
+}
